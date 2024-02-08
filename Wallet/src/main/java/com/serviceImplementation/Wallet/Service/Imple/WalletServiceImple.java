@@ -20,6 +20,8 @@ public class WalletServiceImple implements WalletService {
 
     @Autowired
     TransactionRepo transrepo;
+
+
     @Override
     public ResponseEntity<Wallet> createWallet(Wallet newWallet) {
      try {
@@ -149,6 +151,9 @@ public class WalletServiceImple implements WalletService {
                 Wallet targetWallet = optionalTarget.get();
                 double sourceBalance = sourceWallet.getBalance();
                 double transferBalance = transferAmount.getBalance();
+
+
+
                 if (sourceBalance >= transferBalance && transferBalance <= 100) {
 
                     Transaction sourceTransaction = new Transaction();
