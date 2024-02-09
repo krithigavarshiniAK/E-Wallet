@@ -3,6 +3,8 @@ package com.serviceImplementation.Wallet.WalletController;
 import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1/wallet")
+@Api(tags = "Wallet API")
 public class Controller {
 
     @Autowired
@@ -23,11 +26,13 @@ public class Controller {
         return "Hello, World!";
     }
 
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createWallet")
     public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) {
         return walletService.createWallet(newWallet);
     }
+
 
   @PostMapping("/addWallet")
     public ResponseEntity<Wallet> addWallet(@RequestBody Wallet wallet) {
