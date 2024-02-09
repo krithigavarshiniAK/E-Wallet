@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface WalletService {
 
+
     ResponseEntity<Wallet> createWallet(Wallet newWallet);
 
     ResponseEntity<Wallet> addWallet(Wallet wallet);
@@ -20,9 +21,9 @@ public interface WalletService {
 
     ResponseEntity<String> deleteWalletById(long walletId);
 
-    ResponseEntity<String> deleteAllWallets();
-
     ResponseEntity<List<Wallet>> fundTransfer(long source, long target, Wallet transferAmount);
+
+    void saveTransactions(Wallet sourceWallet, Wallet targetWallet, double transferBalance);
 
     ResponseEntity<List<Transaction>> getAllTransactionss();
 }

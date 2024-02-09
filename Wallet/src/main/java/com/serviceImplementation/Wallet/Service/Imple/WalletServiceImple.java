@@ -6,7 +6,9 @@ import com.serviceImplementation.Wallet.Repository.WalletRepo;
 import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
+import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,11 @@ public class WalletServiceImple implements WalletService {
     @Autowired
     TransactionRepo transrepo;
 
+    @Value("${fund.transfer.limit}")
+    private double transferlimit;
+
+    @Value("${top.Up.limit}")
+    private double topuplimit;
 
     @Override
     public ResponseEntity<Wallet> createWallet(Wallet newWallet) {
@@ -33,10 +40,10 @@ public class WalletServiceImple implements WalletService {
         Wallet savedWallet = walletrepo.save(newWallet);
         return new ResponseEntity<>(savedWallet, HttpStatus.CREATED);
     } catch (ResourceNotFoundException e) {
-        // Handle the custom exception
+
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     } catch (Exception e) {
-        // Handle other exceptions
+
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
@@ -58,7 +65,6 @@ public class WalletServiceImple implements WalletService {
             if (WalletList.isEmpty()) {
                 throw new WalletNotFoundException("No Wallets Found!");
             }
-
             return new ResponseEntity<>(WalletList, HttpStatus.OK);
         }catch(WalletNotFoundException e){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -75,9 +81,9 @@ public class WalletServiceImple implements WalletService {
 
             if (optionalWallet.isPresent()) {
                 Wallet wallet = optionalWallet.get();
-                double topUpAmount = walletRequest.getBalance(); // Assuming balance is used for top-up amount
+                double topUpAmount = walletRequest.getBalance();
 
-                if (topUpAmount > 1000) {
+                if (topUpAmount > topuplimit) {
                     throw new TopUpLimitExceededException("Top-up amount exceeds limit");
                 }
 
@@ -119,28 +125,25 @@ public class WalletServiceImple implements WalletService {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @Override
     public ResponseEntity<String> deleteWalletById(long walletId) {
         Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
         if (optionalWallet.isPresent()) {
             Wallet wallet = optionalWallet.get();
-            walletrepo.delete(wallet);
-            return new ResponseEntity<>("Wallet deleted successfully", HttpStatus.OK);
+            if (wallet.getBalance() == 0) {
+                walletrepo.delete(wallet);
+                return new ResponseEntity<>("Wallet deleted successfully", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Balance is not zero, cannot delete wallet", HttpStatus.BAD_REQUEST);
+            }
         } else {
             return new ResponseEntity<>("Wallet not found", HttpStatus.NOT_FOUND);
         }
     }
 
-    @Override
-    public ResponseEntity<String> deleteAllWallets() {
-        try {
-            walletrepo.deleteAll();
-            return new ResponseEntity<>("Wallets deleted successfully", HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>("No Wallet Found", HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+
     @Override
     public ResponseEntity<List<Wallet>> fundTransfer(long source, long target, Wallet transferAmount) {
         try {
@@ -152,21 +155,9 @@ public class WalletServiceImple implements WalletService {
                 double sourceBalance = sourceWallet.getBalance();
                 double transferBalance = transferAmount.getBalance();
 
+                if (sourceBalance >= transferBalance && transferBalance <= transferlimit) {
 
-
-                if (sourceBalance >= transferBalance && transferBalance <= 100) {
-
-                    Transaction sourceTransaction = new Transaction();
-                    sourceTransaction.setWallet(sourceWallet);
-                    sourceTransaction.setAmount(-transferBalance);
-                    sourceTransaction.setTimestamp(new Date());
-                    transrepo.save(sourceTransaction);
-
-                    Transaction targetTransaction = new Transaction();
-                    targetTransaction.setWallet(targetWallet);
-                    targetTransaction.setAmount(transferBalance);
-                    targetTransaction.setTimestamp(new Date());
-                    transrepo.save(targetTransaction);
+                    saveTransactions(sourceWallet, targetWallet, transferBalance);
 
                     sourceWallet.setBalance(sourceWallet.getBalance() - transferBalance);
                     targetWallet.setBalance(targetWallet.getBalance() + transferBalance);
@@ -187,6 +178,20 @@ public class WalletServiceImple implements WalletService {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+    @Override
+    public void saveTransactions(Wallet sourceWallet, Wallet targetWallet, double transferBalance) {
+        Transaction sourceTransaction = new Transaction();
+        sourceTransaction.setWallet(sourceWallet);
+        sourceTransaction.setAmount(-transferBalance);
+        sourceTransaction.setTimestamp(new Date());
+        transrepo.save(sourceTransaction);
+
+        Transaction targetTransaction = new Transaction();
+        targetTransaction.setWallet(targetWallet);
+        targetTransaction.setAmount(transferBalance);
+        targetTransaction.setTimestamp(new Date());
+        transrepo.save(targetTransaction);
     }
 
     @Override

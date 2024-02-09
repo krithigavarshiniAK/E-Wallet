@@ -54,11 +54,6 @@ public class Controller {
         return walletService.deleteWalletById(walletId);
     }
 
-    @DeleteMapping("/deleteAllWallets")
-    public ResponseEntity<String> deleteAllWallets() {
-        return walletService.deleteAllWallets();
-    }
-
 
     @PostMapping("/fundTransfer/{source}/{target}")
     public ResponseEntity<List<Wallet>> fundTransfer(
