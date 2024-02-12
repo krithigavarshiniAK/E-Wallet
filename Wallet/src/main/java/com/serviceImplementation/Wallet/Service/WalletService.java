@@ -11,8 +11,6 @@ public interface WalletService {
 
     ResponseEntity<Wallet> createWallet(Wallet newWallet);
 
-    ResponseEntity<Wallet> addWallet(Wallet wallet);
-
     ResponseEntity<List<Wallet>> getAllWallets();
 
     ResponseEntity<Wallet> topup(long walletId, Wallet walletRequest);

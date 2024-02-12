@@ -6,7 +6,6 @@ import com.serviceImplementation.Wallet.Repository.WalletRepo;
 import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
-import org.hibernate.cfg.Environment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -29,29 +28,17 @@ public class WalletServiceImple implements WalletService {
     @Value("${top.Up.limit}")
     private double topuplimit;
 
+
     @Override
     public ResponseEntity<Wallet> createWallet(Wallet newWallet) {
-     try {
-        if (newWallet == null) {
-            throw new ResourceNotFoundException("New wallet cannot be null!");
-        }
-
-        newWallet.setBalance(0);
-        Wallet savedWallet = walletrepo.save(newWallet);
-        return new ResponseEntity<>(savedWallet, HttpStatus.CREATED);
-    } catch (ResourceNotFoundException e) {
-
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    } catch (Exception e) {
-
-        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-}
-    @Override
-    public ResponseEntity<Wallet> addWallet(Wallet wallet) {
         try {
-            Wallet walletObj = walletrepo.save(wallet);
-            return new ResponseEntity<>(walletObj, HttpStatus.CREATED);
+            if (newWallet == null) {
+                throw new ResourceNotFoundException("New wallet cannot be null!");
+            }
+
+            newWallet.setBalance(0);
+            Wallet savedWallet = walletrepo.save(newWallet);
+            return new ResponseEntity<>(savedWallet, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

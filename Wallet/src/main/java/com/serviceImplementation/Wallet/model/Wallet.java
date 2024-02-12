@@ -17,7 +17,7 @@ public class Wallet {
 
     private String username;
 
-    private String email;
+    private String emailId;
 
     private double balance;
 

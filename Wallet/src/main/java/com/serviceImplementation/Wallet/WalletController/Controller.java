@@ -4,7 +4,6 @@ import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -31,12 +30,6 @@ public class Controller {
     @PostMapping("/createWallet")
     public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) {
         return walletService.createWallet(newWallet);
-    }
-
-
-  @PostMapping("/addWallet")
-    public ResponseEntity<Wallet> addWallet(@RequestBody Wallet wallet) {
-        return walletService.addWallet(wallet);
     }
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getAllWallets")
