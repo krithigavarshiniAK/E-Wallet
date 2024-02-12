@@ -53,8 +53,6 @@ public class WalletServiceImple implements WalletService {
                 throw new WalletNotFoundException("No Wallets Found!");
             }
             return new ResponseEntity<>(WalletList, HttpStatus.OK);
-        }catch(WalletNotFoundException e){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -82,10 +80,7 @@ public class WalletServiceImple implements WalletService {
             } else {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
-        } catch (TopUpLimitExceededException e) {
-
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
+        }catch (Exception e) {
 
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -104,9 +99,6 @@ public class WalletServiceImple implements WalletService {
             } else {
                 throw new WalletNotFoundException("Wallet not found with ID: " + walletId);
             }
-        } catch (WalletNotFoundException e) {
-
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } catch (Exception e) {
 
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -160,9 +152,7 @@ public class WalletServiceImple implements WalletService {
             } else {
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
             }
-        } catch (InsufficientBalanceException e) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } catch (Exception e) {
+        }  catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

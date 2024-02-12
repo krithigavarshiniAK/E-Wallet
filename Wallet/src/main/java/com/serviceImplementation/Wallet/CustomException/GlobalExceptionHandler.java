@@ -15,7 +15,7 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(
                 walletNotFoundException.getMessage(),
                 walletNotFoundException.getCause(),
-                HttpStatus.NOT_FOUND
+                HttpStatus.NO_CONTENT
         );
 
         return new ResponseEntity<>(walletNotFoundException, HttpStatus.NOT_FOUND);
@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(
                 topUpLimitExceededExceptionn.getMessage(),
                 topUpLimitExceededExceptionn.getCause(),
-                HttpStatus.NOT_FOUND
+                HttpStatus.BAD_REQUEST
         );
 
         return new ResponseEntity<>(topUpLimitExceededExceptionn, HttpStatus.NOT_FOUND);
@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(
                 transactionNotFoundException.getMessage(),
                 transactionNotFoundException.getCause(),
-                HttpStatus.NOT_FOUND
+                HttpStatus.BAD_REQUEST
         );
 
         return new ResponseEntity<>(transactionNotFoundException, HttpStatus.NOT_FOUND);

@@ -29,7 +29,6 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/h2-ui/**").permitAll()
-                        .requestMatchers("/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         http
@@ -37,8 +36,6 @@ public class SecurityConfig {
 
         return http.build();
     }
-
-
 
     @Bean
     public UserDetailsService userDetailsService(){
