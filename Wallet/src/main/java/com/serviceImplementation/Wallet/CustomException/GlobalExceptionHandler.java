@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
                 HttpStatus.NO_CONTENT
         );
 
-        return new ResponseEntity<>(walletNotFoundException, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(walletNotFoundException, HttpStatus.NO_CONTENT);
     }
 
     @ExceptionHandler(value = {InsufficientBalanceException.class})
@@ -28,24 +28,24 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(
                 insufficientBalanceException.getMessage(),
                 insufficientBalanceException.getCause(),
-                HttpStatus.NOT_FOUND
+                HttpStatus.BAD_REQUEST
         );
 
-        return new ResponseEntity<>(insufficientBalanceException, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(insufficientBalanceException, HttpStatus.BAD_REQUEST);
     }
 
 
     @ExceptionHandler(value = {TopUpLimitExceededException.class})
     public ResponseEntity<Object> handleTopUpLimitExceededException
-            (TopUpLimitExceededException topUpLimitExceededExceptionn)
+            (TopUpLimitExceededException topUpLimitExceededException)
     {
         ErrorResponse errorResponse = new ErrorResponse(
-                topUpLimitExceededExceptionn.getMessage(),
-                topUpLimitExceededExceptionn.getCause(),
+                topUpLimitExceededException.getMessage(),
+                topUpLimitExceededException.getCause(),
                 HttpStatus.BAD_REQUEST
         );
 
-        return new ResponseEntity<>(topUpLimitExceededExceptionn, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(topUpLimitExceededException, HttpStatus.BAD_REQUEST);
     }
     @ExceptionHandler(value = {TransactionNotFoundException.class})
     public ResponseEntity<Object> handleTransactionNotFoundException
@@ -54,7 +54,7 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(
                 transactionNotFoundException.getMessage(),
                 transactionNotFoundException.getCause(),
-                HttpStatus.BAD_REQUEST
+                HttpStatus.NOT_FOUND
         );
 
         return new ResponseEntity<>(transactionNotFoundException, HttpStatus.NOT_FOUND);
@@ -71,6 +71,19 @@ public class GlobalExceptionHandler {
         );
 
         return new ResponseEntity<>(resourceNotFoundException, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = {IllegalArgumentException.class})
+    public ResponseEntity<Object> handleIllegalArgumentException
+            (IllegalArgumentException illegalArgumentException)
+    {
+        ErrorResponse errorResponse = new ErrorResponse(
+                illegalArgumentException.getMessage(),
+                illegalArgumentException.getCause(),
+                HttpStatus.BAD_REQUEST
+        );
+
+        return new ResponseEntity<>(illegalArgumentException, HttpStatus.BAD_REQUEST);
     }
 }
 

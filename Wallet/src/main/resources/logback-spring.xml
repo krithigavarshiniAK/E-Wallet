@@ -14,7 +14,7 @@
     </root>
 
     <!-- Configure logging for specific classes -->
-    <logger name="com.example.walletCRUD.Controller" level="INFO" />
+    <logger name="com.serviceImplementation.Wallet.WalletController" level="INFO" />
 
     <!-- Disable logging for certain noisy packages -->
     <logger name="org.springframework" level="ERROR" />

@@ -1,6 +1,8 @@
 package com.serviceImplementation.Wallet.CustomException;
 
 public class WalletNotFoundException extends RuntimeException{
+    public Double WalletNotFoundException;
+
     public WalletNotFoundException(String message){
         super(message);
     }

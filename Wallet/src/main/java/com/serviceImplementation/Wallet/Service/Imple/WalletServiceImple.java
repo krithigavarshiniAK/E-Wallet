@@ -1,6 +1,8 @@
 package com.serviceImplementation.Wallet.Service.Imple;
 
+import com.serviceImplementation.Wallet.Api_Interaction.ApiCaller;
 import com.serviceImplementation.Wallet.CustomException.*;
+import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
 import com.serviceImplementation.Wallet.Repository.TransactionRepo;
 import com.serviceImplementation.Wallet.Repository.WalletRepo;
 import com.serviceImplementation.Wallet.Service.WalletService;
@@ -32,16 +34,18 @@ public class WalletServiceImple implements WalletService {
 
     @Override
     public ResponseEntity<Wallet> createWallet(Wallet newWallet) {
-        try {
+        try {//checks if the wallet is null
             if (newWallet == null) {
-                throw new ResourceNotFoundException("New wallet cannot be null!");
+                //To Handle invalid input
+                throw new ResourceNotFoundException("input cannot be null");
             }
 
             newWallet.setBalance(0);
             Wallet savedWallet = walletrepo.save(newWallet);
-            return new ResponseEntity<>(savedWallet, HttpStatus.CREATED);
+            return ResponseEntity.ok(savedWallet);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
     @Override
@@ -61,13 +65,18 @@ public class WalletServiceImple implements WalletService {
     }
 
     @Override
-    public ResponseEntity<Wallet> topup(long walletId, Wallet walletRequest) {
+    public ResponseEntity<String> topup(long walletId, Wallet walletRequest) {
         try {
             Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
             if (optionalWallet.isPresent()) {
                 Wallet wallet = optionalWallet.get();
                 double topUpAmount = walletRequest.getBalance();
+
+                if (topUpAmount < 0) {
+                    throw new IllegalArgumentException("Top-up amount cannot be negative");
+                }
+
 
                 if (topUpAmount > topuplimit) {
                     throw new TopUpLimitExceededException("Top-up amount exceeds limit");
@@ -77,10 +86,11 @@ public class WalletServiceImple implements WalletService {
 
                 walletrepo.save(wallet);
 
-                return new ResponseEntity<>(HttpStatus.OK);
+                return new ResponseEntity<>("wallet topup successful and has balance " + topUpAmount,HttpStatus.OK);
             } else {
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
+
         }catch (Exception e) {
 
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -89,7 +99,7 @@ public class WalletServiceImple implements WalletService {
 
 
     @Override
-    public ResponseEntity<Double> checkBalance(long walletId) {
+    public ResponseEntity<Object> checkBalance(long walletId) {
         try {
             Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
@@ -100,6 +110,9 @@ public class WalletServiceImple implements WalletService {
             } else {
                 throw new WalletNotFoundException("Wallet not found with ID: " + walletId);
             }
+        }
+        catch (WalletNotFoundException e) {
+            return new ResponseEntity<>(e.getMessage() + "cause: " + e.getCause(),HttpStatus.NOT_FOUND);
         } catch (Exception e) {
 
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

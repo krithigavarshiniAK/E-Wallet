@@ -13,9 +13,9 @@ public interface WalletService {
 
     ResponseEntity<List<Wallet>> getAllWallets();
 
-    ResponseEntity<Wallet> topup(long walletId, Wallet walletRequest);
+    ResponseEntity<String> topup(long walletId, Wallet walletRequest);
 
-    ResponseEntity<Double> checkBalance(long walletId);
+    ResponseEntity<Object> checkBalance(long walletId);
 
     ResponseEntity<String> deleteWalletById(long walletId);
 
