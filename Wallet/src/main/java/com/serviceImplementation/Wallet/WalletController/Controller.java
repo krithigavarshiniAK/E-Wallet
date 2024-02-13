@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/wallet")
+@RequestMapping("/api")
 @Api(tags = "Wallet API")
 public class Controller {
 
@@ -28,6 +28,7 @@ public class Controller {
 
 
     @PreAuthorize("hasRole('ADMIN')")
+    @CrossOrigin
     @PostMapping("/createWallet")
     public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) {
         return walletService.createWallet(newWallet);
@@ -38,7 +39,7 @@ public class Controller {
     public ResponseEntity<Wallet> addWallet(@RequestBody Wallet wallet) {
         return walletService.addWallet(wallet);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getAllWallets")
     public ResponseEntity<List<Wallet>> getAllWallets() {
         return walletService.getAllWallets();
