@@ -28,7 +28,6 @@ import java.util.Map;
 public class ApiCaller {
 
     public String makeApiCall(String apiUrl, String username, String password) throws IOException {
-        // Create a CredentialsProvider and set the provided username and password
         CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
         credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(username, password));
 
@@ -37,18 +36,13 @@ public class ApiCaller {
                 .setDefaultCredentialsProvider(credentialsProvider)
                 .build();
 
-        // Create an HTTP GET request with the provided API URL
         HttpGet httpGet = new HttpGet(apiUrl);
 
-        // Execute the HTTP request and obtain the response
         HttpResponse response = httpClient.execute(httpGet);
 
-        // Get the status code of the response
         int statusCode = response.getStatusLine().getStatusCode();
 
-        // Check if the response is successful (status code 200)
         if (statusCode == 200) {
-            // If successful, read and return the response content
             BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
             StringBuilder responseContent = new StringBuilder();
             String line;
@@ -58,7 +52,6 @@ public class ApiCaller {
             reader.close();
             return responseContent.toString();
         } else {
-            // If unsuccessful, return an error message with the response code
             return "API request failed. Response Code: " + statusCode;
         }
     }

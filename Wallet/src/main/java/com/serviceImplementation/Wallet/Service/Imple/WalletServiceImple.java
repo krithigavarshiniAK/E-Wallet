@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
-@PropertySource("classpath:config.properties")
+
 @Service
 public class WalletServiceImple implements WalletService {
     @Autowired

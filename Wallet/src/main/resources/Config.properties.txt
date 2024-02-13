@@ -1,2 +1,0 @@
-fund.transfer.limit = 100
-top.Up.limit = 1000
