@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
-    <!-- Define appenders -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- Set the root logger level and appender -->
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 
     <!-- Configure logging for specific classes -->
-    <logger name="com.serviceImplementation.Wallet.WalletController" level="INFO" />
+    <logger name="com.example.package" level="DEBUG" />
+    <logger name="com.another.package" level="TRACE" />
 
-    <!-- Disable logging for certain noisy packages -->
     <logger name="org.springframework" level="ERROR" />
     <logger name="org.hibernate" level="ERROR" />
 
