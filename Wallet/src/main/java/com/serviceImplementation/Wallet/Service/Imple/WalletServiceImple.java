@@ -1,6 +1,5 @@
 package com.serviceImplementation.Wallet.Service.Imple;
 
-import com.serviceImplementation.Wallet.Api_Interaction.ApiCaller;
 import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
 import com.serviceImplementation.Wallet.Repository.TransactionRepo;
@@ -10,7 +9,6 @@ import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -48,6 +46,7 @@ public class WalletServiceImple implements WalletService {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
+
     @Override
     public ResponseEntity<List<Wallet>> getAllWallets() {
         try {

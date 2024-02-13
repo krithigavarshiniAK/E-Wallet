@@ -10,10 +10,11 @@ public interface WalletService {
 
 
     ResponseEntity<Wallet> createWallet(Wallet newWallet);
-
+    
     ResponseEntity<List<Wallet>> getAllWallets();
 
     ResponseEntity<String> topup(long walletId, Wallet walletRequest);
+
 
     ResponseEntity<Object> checkBalance(long walletId);
 
