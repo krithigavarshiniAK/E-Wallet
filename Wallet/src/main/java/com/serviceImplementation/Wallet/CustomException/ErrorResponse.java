@@ -1,23 +1,27 @@
 package com.serviceImplementation.Wallet.CustomException;
 
+import org.springframework.http.HttpStatus;
+
 public class ErrorResponse {
-        private String message;
+    private final String message;
+    private final Throwable throwable;
+    private final HttpStatus httpStatus;
 
-
-        public ErrorResponse(String message) {
-            this.message = message;
-        }
-
-        // Getters and setters (You may need to generate them depending on your IDE)
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-
+    public ErrorResponse(String message, Throwable throwable, HttpStatus httpStatus) {
+        this.message = message;
+        this.throwable = throwable;
+        this.httpStatus = httpStatus;
     }
 
+    public String getMessage() {
+        return message;
+    }
 
+    public Throwable getThrowable() {
+        return throwable;
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
+}

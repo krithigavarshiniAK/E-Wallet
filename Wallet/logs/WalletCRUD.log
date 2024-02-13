@@ -1,0 +1,24 @@
+2024-02-13 18:19:07.234 [main] INFO  c.s.Wallet.WalletApplication - Starting WalletApplication using Java 21.0.2 with PID 2784 (C:\Users\OGS\Downloads\Wallet (1)\Wallet\target\classes started by OGS in C:\Users\OGS\Downloads\Wallet (1)\Wallet)
+2024-02-13 18:19:07.237 [main] INFO  c.s.Wallet.WalletApplication - No active profile set, falling back to 1 default profile: "default"
+2024-02-13 18:19:09.364 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-02-13 18:19:09.366 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-02-13 18:19:09.367 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-13 18:19:09.466 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-02-13 18:19:10.460 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-02-13 18:19:10.705 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-02-13 18:19:10.707 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-02-13 18:19:13.314 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-02-13 18:19:13.348 [main] INFO  c.s.Wallet.WalletApplication - Started WalletApplication in 6.754 seconds (process running for 7.27)
+2024-02-13 18:20:01.860 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-02-13 18:20:01.864 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-02-13 18:20:08.053 [main] INFO  c.s.Wallet.WalletApplication - Starting WalletApplication using Java 21.0.2 with PID 6748 (C:\Users\OGS\Downloads\Wallet (1)\Wallet\target\classes started by OGS in C:\Users\OGS\Downloads\Wallet (1)\Wallet)
+2024-02-13 18:20:08.067 [main] INFO  c.s.Wallet.WalletApplication - No active profile set, falling back to 1 default profile: "default"
+2024-02-13 18:20:10.114 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-02-13 18:20:10.117 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-02-13 18:20:10.118 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-13 18:20:10.226 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-02-13 18:20:11.050 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-02-13 18:20:11.271 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-02-13 18:20:11.273 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-02-13 18:20:13.907 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-02-13 18:20:13.941 [main] INFO  c.s.Wallet.WalletApplication - Started WalletApplication in 6.55 seconds (process running for 7.248)

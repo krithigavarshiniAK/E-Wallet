@@ -10,14 +10,13 @@ public interface WalletService {
 
 
     ResponseEntity<Wallet> createWallet(Wallet newWallet);
-
-    ResponseEntity<Wallet> addWallet(Wallet wallet);
-
+    
     ResponseEntity<List<Wallet>> getAllWallets();
 
-    ResponseEntity<Wallet> topup(long walletId, Wallet walletRequest);
+    ResponseEntity<String> topup(long walletId, Wallet walletRequest);
 
-    ResponseEntity<Double> checkBalance(long walletId);
+
+    ResponseEntity<Object> checkBalance(long walletId);
 
     ResponseEntity<String> deleteWalletById(long walletId);
 
@@ -26,4 +25,6 @@ public interface WalletService {
     void saveTransactions(Wallet sourceWallet, Wallet targetWallet, double transferBalance);
 
     ResponseEntity<List<Transaction>> getAllTransactionss();
+
+    ResponseEntity<Wallet> addWallet(Wallet wallet);
 }
