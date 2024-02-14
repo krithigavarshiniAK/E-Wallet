@@ -26,11 +26,6 @@ public interface WalletService {
 
     void saveTransactions(Wallet sourceWallet, Wallet targetWallet, double transferBalance);
 
-<<<<<<< HEAD
     public List<Transaction> getAllTransactionss()throws TransactionNotFoundException;
-=======
-    ResponseEntity<List<Transaction>> getAllTransactionss();
 
-    ResponseEntity<Wallet> addWallet(Wallet wallet);
->>>>>>> 44de8ed8c7a32d670ba95f59dba4e291d73e3a0b
 }
