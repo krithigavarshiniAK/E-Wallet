@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/wallet")
+
 public class Controller {
 
     @Autowired
@@ -28,12 +29,23 @@ public class Controller {
 
 
     @PreAuthorize("hasRole('ADMIN')")
+    @CrossOrigin
     @PostMapping("/createWallet")
     public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) throws ResourceNotFoundException {
         Wallet savedWallet = walletService.createWallet(newWallet);
         return new ResponseEntity<Wallet>(savedWallet, HttpStatus.CREATED);
     }
+
+
+
+  @PostMapping("/addWallet")
+    public ResponseEntity<Wallet> addWallet(@RequestBody Wallet wallet) {
+        return walletService.addWallet(wallet);
+    }
+    //@PreAuthorize("hasRole('ADMIN')")
+
     @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping("/getAllWallets")
     public ResponseEntity<List<Wallet>> getAllWallets() throws WalletNotFoundException {
 
