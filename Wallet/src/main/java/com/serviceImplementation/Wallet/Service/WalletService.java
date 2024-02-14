@@ -1,5 +1,7 @@
 package com.serviceImplementation.Wallet.Service;
 
+import com.serviceImplementation.Wallet.CustomException.*;
+import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
 import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
 import org.springframework.http.ResponseEntity;
@@ -9,20 +11,20 @@ import java.util.List;
 public interface WalletService {
 
 
-    ResponseEntity<Wallet> createWallet(Wallet newWallet);
+    public Wallet createWallet(Wallet newWallet) throws ResourceNotFoundException;
     
-    ResponseEntity<List<Wallet>> getAllWallets();
+    public List<Wallet> getAllWallets() throws WalletNotFoundException;
 
-    ResponseEntity<String> topup(long walletId, Wallet walletRequest);
+    public Wallet topup(long walletId, Wallet walletRequest) throws IllegalArgumentException, TopUpLimitExceededException,WalletNotFoundException ;
 
 
-    ResponseEntity<Object> checkBalance(long walletId);
+    public Double checkBalance(long walletId) throws WalletNotFoundException;
 
-    ResponseEntity<String> deleteWalletById(long walletId);
+    String deleteWalletById(long walletId)throws WalletNotFoundException;
 
-    ResponseEntity<List<Wallet>> fundTransfer(long source, long target, Wallet transferAmount);
+    public List<Wallet> fundTransfer(long source, long target, Wallet transferAmount);
 
     void saveTransactions(Wallet sourceWallet, Wallet targetWallet, double transferBalance);
 
-    ResponseEntity<List<Transaction>> getAllTransactionss();
+    public List<Transaction> getAllTransactionss()throws TransactionNotFoundException;
 }

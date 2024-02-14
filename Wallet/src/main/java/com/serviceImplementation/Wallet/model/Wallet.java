@@ -1,6 +1,7 @@
 package com.serviceImplementation.Wallet.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +18,8 @@ public class Wallet {
 
     private String username;
 
-    private String emailId;
+    @Size(min = 10, max = 12,message = "{Wallet.contact.invalid}")
+    private String mobileNumber;
 
     private double balance;
 

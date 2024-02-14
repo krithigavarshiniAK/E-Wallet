@@ -2,26 +2,50 @@ package com.serviceImplementation.Wallet.CustomException;
 
 import org.springframework.http.HttpStatus;
 
-public class ErrorResponse {
-    private final String message;
-    private final Throwable throwable;
-    private final HttpStatus httpStatus;
+import java.time.LocalDateTime;
 
-    public ErrorResponse(String message, Throwable throwable, HttpStatus httpStatus) {
+public class ErrorResponse {
+    private LocalDateTime timestamp;
+    private String message;
+    private String description;
+
+    public ErrorResponse(LocalDateTime timestamp, String message, String details) {
+        super();
+        this.timestamp = timestamp;
         this.message = message;
-        this.throwable = throwable;
-        this.httpStatus = httpStatus;
+        this.description = details;
+    }
+
+    @Override
+    public String toString() {
+        return "MyErrorDetails [timestamp=" + timestamp + ", message=" + message + ", details=" + description + "]";
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public Throwable getThrowable() {
-        return throwable;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public HttpStatus getHttpStatus() {
-        return httpStatus;
+    public String getDescription() {
+        return description;
     }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public ErrorResponse() {
+    }
+
 }

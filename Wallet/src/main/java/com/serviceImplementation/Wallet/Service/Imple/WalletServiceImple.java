@@ -31,41 +31,47 @@ public class WalletServiceImple implements WalletService {
 
 
     @Override
-    public ResponseEntity<Wallet> createWallet(Wallet newWallet) {
-        try {//checks if the wallet is null
-            if (newWallet == null) {
-                //To Handle invalid input
-                throw new ResourceNotFoundException("input cannot be null");
-            }
+    public Wallet createWallet(Wallet newWallet) throws ResourceNotFoundException,UserAlreadyExistException {
+        Optional<Wallet> existingMobileNumber = walletrepo.findByMobileNumber(newWallet.getMobileNumber());
+        Optional<Wallet> existingUsername = walletrepo.findByUsername(newWallet.getUsername());
 
-            newWallet.setBalance(0);
-            Wallet savedWallet = walletrepo.save(newWallet);
-            return ResponseEntity.ok(savedWallet);
-        } catch (Exception e) {
+        if (existingMobileNumber.isPresent()) {
+            throw new UserAlreadyExistException("Mobile Number already exists: " + newWallet.getMobileNumber());
+        }
 
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        if (existingUsername.isPresent()) {
+            throw new UserAlreadyExistException("Username already exists: " + newWallet.getUsername());
+        }
+
+        newWallet.setBalance(0);
+        Wallet savedWallet = walletrepo.save(newWallet);
+        if (savedWallet != null) {
+            return savedWallet;
+        } else {
+            throw new ResourceNotFoundException("OOPs!,Wallet Creation UnSuccessful.");
         }
     }
 
-    @Override
-    public ResponseEntity<List<Wallet>> getAllWallets() {
-        try {
-            List<Wallet> WalletList = new ArrayList<>();
-            walletrepo.findAll().forEach(WalletList::add);
 
-            if (WalletList.isEmpty()) {
-                throw new WalletNotFoundException("No Wallets Found!");
-            }
-            return new ResponseEntity<>(WalletList, HttpStatus.OK);
+    @Override
+    public List<Wallet> getAllWallets() throws WalletNotFoundException {
+
+        List<Wallet> WalletList = new ArrayList<>();
+        walletrepo.findAll().forEach(WalletList::add);
+
+        if (WalletList.isEmpty()) {
+            throw new WalletNotFoundException("No Wallets Found!");
+        } else {
+            return WalletList;
+
         }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
     }
 
+
     @Override
-    public ResponseEntity<String> topup(long walletId, Wallet walletRequest) {
-        try {
+    public Wallet topup(long walletId, Wallet walletRequest) throws IllegalArgumentException,TopUpLimitExceededException,WalletNotFoundException {
+
             Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
             if (optionalWallet.isPresent()) {
@@ -85,60 +91,50 @@ public class WalletServiceImple implements WalletService {
 
                 walletrepo.save(wallet);
 
-                return new ResponseEntity<>("wallet topup successful and has balance " + topUpAmount,HttpStatus.OK);
+                return wallet;
             } else {
-                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+                throw new WalletNotFoundException("Wallet No Present"+walletId);
             }
 
-        }catch (Exception e) {
-
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 
 
     @Override
-    public ResponseEntity<Object> checkBalance(long walletId) {
-        try {
+    public Double checkBalance(long walletId) throws WalletNotFoundException{
+
             Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
             if (optionalWallet.isPresent()) {
                 Wallet wallet = optionalWallet.get();
                 double balance = wallet.getBalance();
-                return new ResponseEntity<>(balance, HttpStatus.OK);
+                return balance;
             } else {
                 throw new WalletNotFoundException("Wallet not found with ID: " + walletId);
             }
-        }
-        catch (WalletNotFoundException e) {
-            return new ResponseEntity<>(e.getMessage() + "cause: " + e.getCause(),HttpStatus.NOT_FOUND);
-        } catch (Exception e) {
 
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+
     }
 
     @Override
-    public ResponseEntity<String> deleteWalletById(long walletId) {
+    public String deleteWalletById(long walletId) throws WalletNotFoundException{
         Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
         if (optionalWallet.isPresent()) {
             Wallet wallet = optionalWallet.get();
             if (wallet.getBalance() == 0) {
                 walletrepo.delete(wallet);
-                return new ResponseEntity<>("Wallet deleted successfully", HttpStatus.OK);
+                return "Wallet Deleted Successfully!";
             } else {
-                return new ResponseEntity<>("Balance is not zero, cannot delete wallet", HttpStatus.BAD_REQUEST);
+                return "Balance Is not Zero";
             }
         } else {
-            return new ResponseEntity<>("Wallet not found", HttpStatus.NOT_FOUND);
+            throw new WalletNotFoundException("Wallet Not Found");
         }
     }
 
 
     @Override
-    public ResponseEntity<List<Wallet>> fundTransfer(long source, long target, Wallet transferAmount) {
-        try {
+    public List<Wallet> fundTransfer(long source, long target, Wallet transferAmount) throws InsufficientBalanceException, WalletNotFoundException{
             Optional<Wallet> optionalSource = walletrepo.findById(source);
             Optional<Wallet> optionalTarget = walletrepo.findById(target);
             if (optionalSource.isPresent() && optionalTarget.isPresent()) {
@@ -158,35 +154,34 @@ public class WalletServiceImple implements WalletService {
                     sourceWallet = walletrepo.save(sourceWallet);
                     targetWallet = walletrepo.save(targetWallet);
 
-                    return new ResponseEntity<>(Arrays.asList(sourceWallet, targetWallet), HttpStatus.OK);
+                    return Arrays.asList(sourceWallet, targetWallet);
                 } else {
                     throw new InsufficientBalanceException("Insufficient balance or transfer amount exceeds the limit.");
                 }
             } else {
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+                throw new WalletNotFoundException("Desired Wallet Not Found");
             }
-        }  catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
+
     @Override
     public void saveTransactions(Wallet sourceWallet, Wallet targetWallet, double transferBalance) {
-        Transaction sourceTransaction = new Transaction();
-        sourceTransaction.setWallet(sourceWallet);
-        sourceTransaction.setAmount(-transferBalance);
-        sourceTransaction.setTimestamp(new Date());
-        transrepo.save(sourceTransaction);
 
-        Transaction targetTransaction = new Transaction();
-        targetTransaction.setWallet(targetWallet);
-        targetTransaction.setAmount(transferBalance);
-        targetTransaction.setTimestamp(new Date());
-        transrepo.save(targetTransaction);
-    }
+            Transaction sourceTransaction = new Transaction();
+            sourceTransaction.setWallet(sourceWallet);
+            sourceTransaction.setAmount(-transferBalance);
+            sourceTransaction.setTimestamp(new Date());
+            transrepo.save(sourceTransaction);
+
+            Transaction targetTransaction = new Transaction();
+            targetTransaction.setWallet(targetWallet);
+            targetTransaction.setAmount(transferBalance);
+            targetTransaction.setTimestamp(new Date());
+            transrepo.save(targetTransaction);
+        }
 
     @Override
-    public ResponseEntity<List<Transaction>> getAllTransactionss() {
-        try {
+    public List<Transaction> getAllTransactionss()throws TransactionNotFoundException{
+
             List<Transaction> transactionList = new ArrayList<>();
             transrepo.findAll().forEach(transactionList::add);
 
@@ -194,11 +189,11 @@ public class WalletServiceImple implements WalletService {
                 throw new TransactionNotFoundException("No transactions found");
             }
 
-            return new ResponseEntity<>(transactionList, HttpStatus.OK);
-        } catch (TransactionNotFoundException e) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return transactionList;
         }
     }
-}
+
+
+
+
+

@@ -4,87 +4,98 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+
+import java.time.LocalDateTime;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = {WalletNotFoundException.class})
-    public ResponseEntity<Object> handleWalletNotFoundException
-            (WalletNotFoundException walletNotFoundException)
+    public ResponseEntity<ErrorResponse> handleWalletNotFoundException
+            (WalletNotFoundException walletNotFoundException,WebRequest req)
     {
-        ErrorResponse errorResponse = new ErrorResponse(
-                walletNotFoundException.getMessage(),
-                walletNotFoundException.getCause(),
-                HttpStatus.NO_CONTENT
-        );
+        ErrorResponse errorResponse = new ErrorResponse();
 
-        return new ResponseEntity<>(walletNotFoundException, HttpStatus.NO_CONTENT);
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(walletNotFoundException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(value = {InsufficientBalanceException.class})
-    public ResponseEntity<Object> handleInsufficientBalanceException
-            (InsufficientBalanceException insufficientBalanceException)
-    {
-        ErrorResponse errorResponse = new ErrorResponse(
-                insufficientBalanceException.getMessage(),
-                insufficientBalanceException.getCause(),
-                HttpStatus.BAD_REQUEST
-        );
-
-        return new ResponseEntity<>(insufficientBalanceException, HttpStatus.BAD_REQUEST);
-    }
-
-
-    @ExceptionHandler(value = {TopUpLimitExceededException.class})
-    public ResponseEntity<Object> handleTopUpLimitExceededException
-            (TopUpLimitExceededException topUpLimitExceededException)
-    {
-        ErrorResponse errorResponse = new ErrorResponse(
-                topUpLimitExceededException.getMessage(),
-                topUpLimitExceededException.getCause(),
-                HttpStatus.BAD_REQUEST
-        );
-
-        return new ResponseEntity<>(topUpLimitExceededException, HttpStatus.BAD_REQUEST);
-    }
-    @ExceptionHandler(value = {TransactionNotFoundException.class})
-    public ResponseEntity<Object> handleTransactionNotFoundException
-            (TransactionNotFoundException transactionNotFoundException)
-    {
-        ErrorResponse errorResponse = new ErrorResponse(
-                transactionNotFoundException.getMessage(),
-                transactionNotFoundException.getCause(),
-                HttpStatus.NOT_FOUND
-        );
-
-        return new ResponseEntity<>(transactionNotFoundException, HttpStatus.NOT_FOUND);
-    }
 
     @ExceptionHandler(value = {ResourceNotFoundException.class})
-    public ResponseEntity<Object> handleResourceNotFoundException
-            (ResourceNotFoundException resourceNotFoundException)
-    {
-        ErrorResponse errorResponse = new ErrorResponse(
-                resourceNotFoundException.getMessage(),
-                resourceNotFoundException.getCause(),
-                HttpStatus.NOT_FOUND
-        );
+    public ResponseEntity<ErrorResponse> handleResourceNotFoundException
+            (ResourceNotFoundException resourceNotFoundException,WebRequest req)
+    { ErrorResponse errorResponse = new ErrorResponse();
 
-        return new ResponseEntity<>(resourceNotFoundException, HttpStatus.NOT_FOUND);
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(resourceNotFoundException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(value = {TopUpLimitExceededException.class})
+    public ResponseEntity<ErrorResponse> handleTopUpLimitExceededException
+            (TopUpLimitExceededException topUpLimitExceededException,WebRequest req)
+    { ErrorResponse errorResponse = new ErrorResponse();
+
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(topUpLimitExceededException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(value = {TransactionNotFoundException.class})
+    public ResponseEntity<ErrorResponse> handleTransactionNotFoundException
+            (TransactionNotFoundException transactionNotFoundException,WebRequest req)
+    { ErrorResponse errorResponse = new ErrorResponse();
+
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(transactionNotFoundException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler(value = {InsufficientBalanceException.class})
+    public ResponseEntity<ErrorResponse> handleInsufficientBalanceException
+            (InsufficientBalanceException insufficientBalanceException,WebRequest req)
+    { ErrorResponse errorResponse = new ErrorResponse();
+
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(insufficientBalanceException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {IllegalArgumentException.class})
-    public ResponseEntity<Object> handleIllegalArgumentException
-            (IllegalArgumentException illegalArgumentException)
-    {
-        ErrorResponse errorResponse = new ErrorResponse(
-                illegalArgumentException.getMessage(),
-                illegalArgumentException.getCause(),
-                HttpStatus.BAD_REQUEST
-        );
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException
+            (IllegalArgumentException illegalArgumentException,WebRequest req)
+    { ErrorResponse errorResponse = new ErrorResponse();
 
-        return new ResponseEntity<>(illegalArgumentException, HttpStatus.BAD_REQUEST);
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(illegalArgumentException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(value = {UserAlreadyExistException.class})
+    public ResponseEntity<ErrorResponse> handle
+            (UserAlreadyExistException userAlreadyExistException,WebRequest req)
+    { ErrorResponse errorResponse = new ErrorResponse();
+
+        errorResponse.setTimestamp(LocalDateTime.now());
+        errorResponse.setMessage(userAlreadyExistException.getMessage());
+        errorResponse.setDescription(req.getDescription(false));
+
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
 
 
