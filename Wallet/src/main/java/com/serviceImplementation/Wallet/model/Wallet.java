@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.xml.transform.Source;
+
 @Entity
 @Table(name="Wallet_s")
 @Setter
@@ -18,7 +20,7 @@ public class Wallet {
 
     private String username;
 
-    @Size(min = 10, max = 12,message = "{Wallet.contact.invalid}")
+    @Size(min = 10, max = 10,message = "Mobile number must be exactly 10 characters")
     private String mobileNumber;
 
     private double balance;

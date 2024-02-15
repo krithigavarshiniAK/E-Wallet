@@ -25,9 +25,9 @@ public class GlobalExceptionHandler {
     }
 
 
-    @ExceptionHandler(value = {ResourceNotFoundException.class})
+    @ExceptionHandler(value = {UserNotFoundException.class})
     public ResponseEntity<ErrorResponse> handleResourceNotFoundException
-            (ResourceNotFoundException resourceNotFoundException,WebRequest req)
+            (UserNotFoundException resourceNotFoundException, WebRequest req)
     { ErrorResponse errorResponse = new ErrorResponse();
 
         errorResponse.setTimestamp(LocalDateTime.now());

@@ -4,14 +4,13 @@ import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
 import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
-import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
 public interface WalletService {
 
 
-    public Wallet createWallet(Wallet newWallet) throws ResourceNotFoundException;
+    public Wallet createWallet(Wallet newWallet) throws UserNotFoundException;
     
     public List<Wallet> getAllWallets() throws WalletNotFoundException;
 

@@ -31,13 +31,12 @@ public class Controller {
     @PreAuthorize("hasRole('ADMIN')")
    // @CrossOrigin
     @PostMapping("/createWallet")
-    public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) throws ResourceNotFoundException {
+    public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) throws UserNotFoundException {
         Wallet savedWallet = walletService.createWallet(newWallet);
         return new ResponseEntity<Wallet>(savedWallet, HttpStatus.CREATED);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-
     @GetMapping("/getAllWallets")
     public ResponseEntity<List<Wallet>> getAllWallets() throws WalletNotFoundException {
 
@@ -80,8 +79,6 @@ public class Controller {
        List<Transaction> transactionList = walletService.getAllTransactionss();
        return new ResponseEntity<>(transactionList,HttpStatus.OK);
     }
-
-
 }
 
 

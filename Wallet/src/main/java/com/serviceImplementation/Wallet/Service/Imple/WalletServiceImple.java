@@ -1,7 +1,7 @@
 package com.serviceImplementation.Wallet.Service.Imple;
 
-import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
+import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.Repository.TransactionRepo;
 import com.serviceImplementation.Wallet.Repository.WalletRepo;
 import com.serviceImplementation.Wallet.Service.WalletService;
@@ -9,8 +9,6 @@ import com.serviceImplementation.Wallet.model.Transaction;
 import com.serviceImplementation.Wallet.model.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -31,7 +29,7 @@ public class WalletServiceImple implements WalletService {
 
 
     @Override
-    public Wallet createWallet(Wallet newWallet) throws ResourceNotFoundException,UserAlreadyExistException {
+    public Wallet createWallet(Wallet newWallet) throws UserNotFoundException,UserAlreadyExistException {
         Optional<Wallet> existingMobileNumber = walletrepo.findByMobileNumber(newWallet.getMobileNumber());
         Optional<Wallet> existingUsername = walletrepo.findByUsername(newWallet.getUsername());
 
@@ -45,10 +43,11 @@ public class WalletServiceImple implements WalletService {
 
         newWallet.setBalance(0);
         Wallet savedWallet = walletrepo.save(newWallet);
+
         if (savedWallet != null) {
             return savedWallet;
         } else {
-            throw new ResourceNotFoundException("OOPs!,Wallet Creation UnSuccessful.");
+            throw new UserNotFoundException("OOPs!,Wallet Creation UnSuccessful.");
         }
     }
 
@@ -111,8 +110,6 @@ public class WalletServiceImple implements WalletService {
             } else {
                 throw new WalletNotFoundException("Wallet not found with ID: " + walletId);
             }
-
-
     }
 
     @Override
