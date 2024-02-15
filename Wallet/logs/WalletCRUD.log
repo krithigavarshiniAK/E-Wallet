@@ -2546,3 +2546,32 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2024-02-15 15:08:33.006 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
 2024-02-15 15:23:24.628 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-02-15 15:23:24.632 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-02-15 15:23:33.007 [main] INFO  c.s.Wallet.WalletApplication - Starting WalletApplication using Java 21.0.2 with PID 16728 (C:\Users\OGS\Downloads\Wallet (1)\Wallet\target\classes started by OGS in C:\Users\OGS\Downloads\Wallet (1)\Wallet)
+2024-02-15 15:23:33.010 [main] INFO  c.s.Wallet.WalletApplication - No active profile set, falling back to 1 default profile: "default"
+2024-02-15 15:23:35.000 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-02-15 15:23:35.004 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-02-15 15:23:35.004 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-15 15:23:35.113 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-02-15 15:23:35.910 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-02-15 15:23:36.136 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-02-15 15:23:36.138 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-02-15 15:23:38.944 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-02-15 15:23:38.977 [main] INFO  c.s.Wallet.WalletApplication - Started WalletApplication in 6.577 seconds (process running for 7.087)
+2024-02-15 15:23:54.252 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-15 15:59:53.478 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-02-15 15:59:53.483 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-02-15 18:08:26.264 [main] INFO  c.s.Wallet.WalletApplication - Starting WalletApplication using Java 21.0.2 with PID 18132 (C:\Users\OGS\Downloads\Wallet (1)\Wallet\target\classes started by OGS in C:\Users\OGS\Downloads\Wallet (1)\Wallet)
+2024-02-15 18:08:26.266 [main] INFO  c.s.Wallet.WalletApplication - No active profile set, falling back to 1 default profile: "default"
+2024-02-15 18:08:29.090 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2024-02-15 18:08:29.095 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-02-15 18:08:29.096 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-02-15 18:08:29.216 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-02-15 18:08:30.260 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-02-15 18:08:30.544 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-02-15 18:08:30.549 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-02-15 18:08:34.242 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2024-02-15 18:08:34.285 [main] INFO  c.s.Wallet.WalletApplication - Started WalletApplication in 8.653 seconds (process running for 9.203)
+2024-02-15 18:11:51.109 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-15 18:11:53.440 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 466 ms
+2024-02-15 18:25:51.476 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-02-15 18:25:51.480 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
