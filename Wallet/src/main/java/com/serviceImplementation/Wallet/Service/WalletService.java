@@ -27,4 +27,6 @@ public interface WalletService {
 
     public List<Transaction> getAllTransactionss()throws TransactionNotFoundException;
 
+    public List<Transaction> getTransactionByAmount(double amount) throws TransactionNotFoundException;
+
 }

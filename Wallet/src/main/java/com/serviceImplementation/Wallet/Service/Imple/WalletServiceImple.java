@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class WalletServiceImple implements WalletService {
@@ -69,7 +71,7 @@ public class WalletServiceImple implements WalletService {
 
 
     @Override
-    public Wallet topup(long walletId, Wallet walletRequest) throws IllegalArgumentException,TopUpLimitExceededException,WalletNotFoundException {
+    public Wallet topup(long walletId,Wallet walletRequest) throws IllegalArgumentException,TopUpLimitExceededException,WalletNotFoundException {
 
             Optional<Wallet> optionalWallet = walletrepo.findById(walletId);
 
@@ -96,8 +98,6 @@ public class WalletServiceImple implements WalletService {
             }
 
     }
-
-
     @Override
     public Double checkBalance(long walletId) throws WalletNotFoundException{
 
@@ -165,12 +165,14 @@ public class WalletServiceImple implements WalletService {
 
             Transaction sourceTransaction = new Transaction();
             sourceTransaction.setWallet(sourceWallet);
+            sourceTransaction.setTransactionType("Credited");
             sourceTransaction.setAmount(-transferBalance);
             sourceTransaction.setTimestamp(new Date());
             transrepo.save(sourceTransaction);
 
             Transaction targetTransaction = new Transaction();
             targetTransaction.setWallet(targetWallet);
+            targetTransaction.setTransactionType("Debited");
             targetTransaction.setAmount(transferBalance);
             targetTransaction.setTimestamp(new Date());
             transrepo.save(targetTransaction);
@@ -188,7 +190,23 @@ public class WalletServiceImple implements WalletService {
 
             return transactionList;
         }
+
+    @Override
+    public List<Transaction> getTransactionByAmount(double amount) throws TransactionNotFoundException{
+        List<Transaction> allTransactions = getAllTransactionss();
+
+        List<Transaction> transactionsByAmount = allTransactions.stream()
+                .filter(transaction -> transaction.getAmount() == amount)
+                .collect(Collectors.toList());
+
+        if (transactionsByAmount.isEmpty()) {
+            throw new TransactionNotFoundException("No transactions found for amount: " + amount);
+        }
+
+        return transactionsByAmount;
     }
+
+}
 
 
 

@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Entity
 @Getter
@@ -20,6 +21,8 @@ public class Transaction {
     private Wallet wallet;
 
     private double amount;
+
+    private String TransactionType;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;

@@ -44,29 +44,29 @@ public class Controller {
         return new ResponseEntity<List<Wallet>>(WalletList, HttpStatus.OK);
     }
 
-    @PostMapping("/topUpById/{walletId}")
-    public ResponseEntity<Wallet> topUp(@PathVariable long walletId, @RequestBody Wallet walletRequest)throws IllegalArgumentException, TopUpLimitExceededException,WalletNotFoundException {
+    @PostMapping("/topUpById")
+    public ResponseEntity<Wallet> topUp(@RequestParam long walletId, @RequestBody Wallet walletRequest)throws IllegalArgumentException, TopUpLimitExceededException,WalletNotFoundException {
         Wallet wallet = walletService.topup(walletId, walletRequest);
         return new ResponseEntity<Wallet>(wallet, HttpStatus.ACCEPTED);
     }
 
-    @GetMapping("/checkBalance/{walletId}")
-    public ResponseEntity<Double> checkBalance(@PathVariable long walletId) throws WalletNotFoundException{
+    @GetMapping("/checkBalance")
+    public ResponseEntity<Double> checkBalance(@RequestParam long walletId) throws WalletNotFoundException{
          Double balance = walletService.checkBalance(walletId);
          return new ResponseEntity<>(balance, HttpStatus.OK);
     }
 
-    @DeleteMapping("/delete/{walletId}")
-    public ResponseEntity<String> deleteWalletById(@PathVariable long walletId) throws WalletNotFoundException{
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteWalletById(@RequestParam long walletId) throws WalletNotFoundException{
        String result=walletService.deleteWalletById(walletId);
        return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
 
-    @PostMapping("/fundTransfer/{source}/{target}")
+    @PostMapping("/fundTransfer")
     public ResponseEntity<List<Wallet>> fundTransfer(
-            @PathVariable long source,
-            @PathVariable long target,
+            @RequestParam long source,
+            @RequestParam long target,
             @RequestBody Wallet transferAmount) {
         List<Wallet> WalletList = walletService.fundTransfer(source, target, transferAmount);
         return new ResponseEntity<List<Wallet>>(WalletList,HttpStatus.OK);
@@ -78,6 +78,13 @@ public class Controller {
     public ResponseEntity<List<Transaction>> getAllTransactionss() throws TransactionNotFoundException {
        List<Transaction> transactionList = walletService.getAllTransactionss();
        return new ResponseEntity<>(transactionList,HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/getTransactionByAmount")
+    public ResponseEntity<List<Transaction>> getTransactionByAmount(@RequestParam double amount) throws TransactionNotFoundException{
+        List<Transaction> allTransaction = walletService.getTransactionByAmount(amount);
+        return new ResponseEntity<>(allTransaction,HttpStatus.OK);
     }
 }
 
