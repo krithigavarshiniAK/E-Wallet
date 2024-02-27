@@ -10,9 +10,6 @@
         <module name="Wallet" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Wallet" target="18" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

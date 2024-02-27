@@ -3,6 +3,9 @@ package com.serviceImplementation.Wallet.CustomException;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import static java.lang.String.format;
 
 public class ErrorResponse {
     private LocalDateTime timestamp;
@@ -11,10 +14,11 @@ public class ErrorResponse {
 
     public ErrorResponse(LocalDateTime timestamp, String message, String details) {
         super();
-        this.timestamp = timestamp;
+        this.timestamp = LocalDateTime.parse(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         this.message = message;
         this.description = details;
     }
+
 
     @Override
     public String toString() {

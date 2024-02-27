@@ -3,7 +3,8 @@ package com.serviceImplementation.Wallet.WalletController;
 import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
 import com.serviceImplementation.Wallet.Service.WalletService;
-import com.serviceImplementation.Wallet.model.Transaction;
+//import com.serviceImplementation.Wallet.model.Transactions;
+import com.serviceImplementation.Wallet.model.Transactions;
 import com.serviceImplementation.Wallet.model.Wallet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class Controller {
 
 
     @PreAuthorize("hasRole('ADMIN')")
-   // @CrossOrigin
+    //@CrossOrigin
     @PostMapping("/createWallet")
     public ResponseEntity<Wallet> createWallet(@RequestBody Wallet newWallet) throws UserNotFoundException {
         Wallet savedWallet = walletService.createWallet(newWallet);
@@ -75,17 +76,18 @@ public class Controller {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getAllTransactions")
-    public ResponseEntity<List<Transaction>> getAllTransactionss() throws TransactionNotFoundException {
-       List<Transaction> transactionList = walletService.getAllTransactionss();
-       return new ResponseEntity<>(transactionList,HttpStatus.OK);
+    public ResponseEntity<List<Transactions>> getAllTransactionss() throws TransactionNotFoundException {
+       List<Transactions> transactionsList = walletService.getAllTransactions();
+       return new ResponseEntity<>(transactionsList,HttpStatus.OK);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getTransactionByAmount")
-    public ResponseEntity<List<Transaction>> getTransactionByAmount(@RequestParam double amount) throws TransactionNotFoundException{
-        List<Transaction> allTransaction = walletService.getTransactionByAmount(amount);
-        return new ResponseEntity<>(allTransaction,HttpStatus.OK);
+    public ResponseEntity<List<Transactions>> getTransactionByAmount(@RequestParam double amount) throws TransactionNotFoundException{
+        List<Transactions> allTransactions = walletService.getTransactionByAmount(amount);
+        return new ResponseEntity<>(allTransactions,HttpStatus.OK);
     }
+
 }
 
 
