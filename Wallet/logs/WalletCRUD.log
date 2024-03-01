@@ -2575,3 +2575,396 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2024-02-15 18:11:53.440 [http-nio-8080-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 466 ms
 2024-02-15 18:25:51.476 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2024-02-15 18:25:51.480 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 11:37:34.200 [main] INFO  c.s.Wallet.WalletApplicationTests - Starting WalletApplicationTests using Java 21.0.2 with PID 14696 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 11:37:34.209 [main] INFO  c.s.Wallet.WalletApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 11:37:38.063 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'resourceHandlerMapping' defined in org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception with message: No ServletContext set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1334)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1164)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1454)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:552)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.HandlerMapping]: Factory method 'resourceHandlerMapping' threw exception with message: No ServletContext set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 96 common frames omitted
+Caused by: java.lang.IllegalStateException: No ServletContext set
+	at org.springframework.util.Assert.state(Assert.java:76)
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.resourceHandlerMapping(WebMvcConfigurationSupport.java:581)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 97 common frames omitted
+2024-03-01 11:41:54.785 [main] INFO  c.s.Wallet.WalletApplicationTests - Starting WalletApplicationTests using Java 21.0.2 with PID 6464 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 11:41:54.787 [main] INFO  c.s.Wallet.WalletApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 11:41:57.328 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 11:41:57.872 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4e7eba9f
+2024-03-01 11:41:57.875 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 11:42:00.887 [main] INFO  c.s.Wallet.WalletApplicationTests - Started WalletApplicationTests in 6.772 seconds (process running for 8.175)
+2024-03-01 11:42:01.988 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 11:42:02.001 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:12:41.729 [main] INFO  c.s.Wallet.WalletApplicationTests - Starting WalletApplicationTests using Java 21.0.2 with PID 7048 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:12:41.732 [main] INFO  c.s.Wallet.WalletApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:12:44.296 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:12:44.844 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@717a8a76
+2024-03-01 12:12:44.850 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:12:47.890 [main] INFO  c.s.Wallet.WalletApplicationTests - Started WalletApplicationTests in 6.789 seconds (process running for 8.321)
+2024-03-01 12:12:48.668 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:12:48.684 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:27:59.241 [main] INFO  c.s.Wallet.SmokeTest - Starting SmokeTest using Java 21.0.2 with PID 14624 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:27:59.243 [main] INFO  c.s.Wallet.SmokeTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:28:01.736 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:28:02.300 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@29f95272
+2024-03-01 12:28:02.303 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:28:05.333 [main] INFO  c.s.Wallet.SmokeTest - Started SmokeTest in 6.534 seconds (process running for 7.965)
+2024-03-01 12:28:06.193 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:28:06.206 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:30:39.076 [main] INFO  c.s.Wallet.SmokeTest - Starting SmokeTest using Java 21.0.2 with PID 3992 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:30:39.078 [main] INFO  c.s.Wallet.SmokeTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:30:41.570 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:30:42.096 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@62de73eb
+2024-03-01 12:30:42.099 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:30:45.172 [main] INFO  c.s.Wallet.SmokeTest - Started SmokeTest in 6.541 seconds (process running for 8.02)
+2024-03-01 12:30:46.025 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:30:46.038 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:41:29.719 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 8908 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:41:29.720 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:41:31.712 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:41:31.716 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 12:41:31.717 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 12:41:31.839 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 12:41:32.742 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:41:33.273 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@773c7147
+2024-03-01 12:41:33.275 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:41:36.183 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:41:36.219 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.979 seconds (process running for 8.297)
+2024-03-01 12:41:37.077 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 12:41:37.241 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:41:37.252 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:45:30.098 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 9084 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:45:30.100 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:45:32.102 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:45:32.105 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 12:45:32.106 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 12:45:32.224 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 12:45:33.069 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:45:33.598 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@578d472a
+2024-03-01 12:45:33.601 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:45:36.416 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:45:36.450 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.852 seconds (process running for 8.386)
+2024-03-01 12:45:37.306 [http-nio-auto-1-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 12:45:37.462 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:45:37.473 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:47:57.757 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 3352 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:47:57.759 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:47:59.795 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:47:59.798 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 12:47:59.799 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 12:47:59.916 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 12:48:00.782 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:48:01.336 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@47fca3cc
+2024-03-01 12:48:01.338 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:48:04.150 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:48:04.185 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.908 seconds (process running for 8.217)
+2024-03-01 12:48:05.210 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 12:48:05.385 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:48:05.396 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:49:55.218 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 13692 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:49:55.220 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:49:57.493 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:49:57.497 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 12:49:57.497 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 12:49:57.617 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 12:49:58.481 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:49:59.031 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@773c7147
+2024-03-01 12:49:59.035 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:50:01.905 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:50:01.950 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.275 seconds (process running for 8.656)
+2024-03-01 12:50:02.796 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 12:50:02.956 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:50:02.967 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 12:54:33.122 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 15300 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 12:54:33.123 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 12:54:35.193 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:54:35.197 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 12:54:35.197 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 12:54:35.319 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 12:54:36.198 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 12:54:36.750 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a5066f5
+2024-03-01 12:54:36.753 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 12:54:39.551 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 12:54:39.596 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.081 seconds (process running for 8.413)
+2024-03-01 12:54:40.407 [http-nio-auto-1-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 12:54:40.561 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 12:54:40.572 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 13:05:23.058 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 6308 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 13:05:23.060 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 13:05:25.110 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:05:25.113 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 13:05:25.114 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 13:05:25.240 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 13:05:26.146 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 13:05:26.682 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a0c7af6
+2024-03-01 13:05:26.684 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 13:05:29.594 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:05:29.629 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.054 seconds (process running for 8.37)
+2024-03-01 13:05:30.459 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 13:05:30.590 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 13:05:30.602 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 13:06:33.153 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 13540 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 13:06:33.155 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 13:06:35.155 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:06:35.159 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 13:06:35.159 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 13:06:35.279 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 13:06:36.109 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 13:06:36.643 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7296fe0b
+2024-03-01 13:06:36.646 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 13:06:39.438 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:06:39.473 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.794 seconds (process running for 8.107)
+2024-03-01 13:06:40.352 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 13:06:40.501 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 13:06:40.511 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 13:07:12.402 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 11500 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 13:07:12.404 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 13:07:14.421 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:07:14.425 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 13:07:14.425 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 13:07:14.539 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 13:07:15.383 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 13:07:15.940 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2bc2e022
+2024-03-01 13:07:15.943 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 13:07:19.120 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:07:19.164 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.28 seconds (process running for 8.797)
+2024-03-01 13:07:19.982 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 13:07:20.127 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 13:07:20.136 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 13:21:32.324 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 11368 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 13:21:32.326 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 13:21:34.402 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:21:34.405 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 13:21:34.406 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 13:21:34.528 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 13:21:35.376 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 13:21:35.923 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e6b379c
+2024-03-01 13:21:35.925 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 13:21:38.677 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 13:21:38.723 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.982 seconds (process running for 8.38)
+2024-03-01 13:21:39.574 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 13:21:39.706 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 13:21:39.718 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 14:08:04.218 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 10064 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 14:08:04.219 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 14:08:06.211 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:08:06.215 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 14:08:06.216 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 14:08:06.340 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 14:08:07.218 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 14:08:07.755 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e6b379c
+2024-03-01 14:08:07.758 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 14:08:10.537 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:08:10.581 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.821 seconds (process running for 8.174)
+2024-03-01 14:08:11.427 [http-nio-auto-1-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 14:08:11.581 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 14:08:11.593 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 14:19:01.737 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 14704 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 14:19:01.739 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 14:19:03.744 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:19:03.748 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 14:19:03.748 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 14:19:03.866 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 14:19:04.815 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 14:19:05.389 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c3007d
+2024-03-01 14:19:05.392 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 14:19:08.577 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:19:08.612 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.359 seconds (process running for 8.724)
+2024-03-01 14:19:09.445 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 14:19:09.763 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 14:19:09.774 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 14:22:07.555 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 14736 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 14:22:07.557 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 14:22:09.565 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:22:09.569 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 14:22:09.569 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 14:22:09.684 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 14:22:10.523 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 14:22:11.057 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5c3007d
+2024-03-01 14:22:11.060 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 14:22:13.860 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:22:13.896 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 6.824 seconds (process running for 8.163)
+2024-03-01 14:22:14.747 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 14:22:15.051 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 14:22:15.062 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 14:30:07.468 [main] INFO  c.s.Wallet.WalletServiceTest - Starting WalletServiceTest using Java 21.0.2 with PID 15536 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 14:30:07.469 [main] INFO  c.s.Wallet.WalletServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 14:30:11.445 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:30:11.450 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 14:30:11.450 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 14:30:11.584 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 14:30:12.234 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 14:30:12.838 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@166d576b
+2024-03-01 14:30:12.842 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 14:30:15.577 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:30:15.621 [main] INFO  c.s.Wallet.WalletServiceTest - Started WalletServiceTest in 8.636 seconds (process running for 9.953)
+2024-03-01 14:30:15.700 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 14:30:15.709 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 14:31:35.436 [main] INFO  c.s.Wallet.WalletServiceTest - Starting WalletServiceTest using Java 21.0.2 with PID 11800 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 14:31:35.438 [main] INFO  c.s.Wallet.WalletServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 14:31:39.450 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:31:39.454 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 14:31:39.454 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 14:31:39.587 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 14:31:40.486 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 14:31:41.056 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d5e0bf0
+2024-03-01 14:31:41.059 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 14:31:43.738 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:31:43.773 [main] INFO  c.s.Wallet.WalletServiceTest - Started WalletServiceTest in 8.816 seconds (process running for 10.14)
+2024-03-01 14:31:43.860 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 14:31:43.871 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 14:49:53.548 [main] INFO  c.s.Wallet.WalletServiceTest - Starting WalletServiceTest using Java 21.0.2 with PID 2936 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 14:49:53.550 [main] INFO  c.s.Wallet.WalletServiceTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 14:49:57.423 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:49:57.427 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 14:49:57.428 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 14:49:57.561 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 14:49:58.172 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 14:49:58.749 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3435a4e5
+2024-03-01 14:49:58.752 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 14:50:01.429 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 14:50:01.473 [main] INFO  c.s.Wallet.WalletServiceTest - Started WalletServiceTest in 8.398 seconds (process running for 9.759)
+2024-03-01 14:50:01.560 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 14:50:01.570 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 15:37:49.559 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 15924 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 15:37:49.561 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 15:37:52.211 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 15:37:52.240 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 15:37:52.241 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 15:37:52.384 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 15:37:53.330 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 15:37:55.314 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7296fe0b
+2024-03-01 15:37:55.317 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 15:37:58.284 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 15:37:58.336 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 9.306 seconds (process running for 10.698)
+2024-03-01 15:37:59.666 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 15:37:59.860 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 15:37:59.885 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 15:38:26.264 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 5856 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 15:38:26.266 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 15:38:28.476 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 15:38:28.480 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 15:38:28.480 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 15:38:28.611 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 15:38:29.528 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 15:38:30.135 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7296fe0b
+2024-03-01 15:38:30.139 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 15:38:33.073 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 15:38:33.124 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.347 seconds (process running for 8.73)
+2024-03-01 15:38:34.059 [http-nio-auto-1-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 15:38:34.226 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 15:38:34.250 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-03-01 16:23:28.488 [main] INFO  c.s.Wallet.HttpRequestTest - Starting HttpRequestTest using Java 21.0.2 with PID 13324 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-01 16:23:28.502 [main] INFO  c.s.Wallet.HttpRequestTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-01 16:23:30.612 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 16:23:30.616 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2024-03-01 16:23:30.616 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.18]
+2024-03-01 16:23:30.762 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-03-01 16:23:31.637 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-03-01 16:23:32.220 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1ff81b0d
+2024-03-01 16:23:32.223 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-03-01 16:23:35.572 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2024-03-01 16:23:35.609 [main] INFO  c.s.Wallet.HttpRequestTest - Started HttpRequestTest in 7.61 seconds (process running for 9.371)
+2024-03-01 16:23:38.344 [http-nio-auto-1-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-01 16:23:39.126 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-03-01 16:23:39.153 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,31 +1,24 @@
 package com.serviceImplementation.Wallet.Service.Imple;
 
-import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
+import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transactions;
 import com.serviceImplementation.Wallet.model.Wallet;
-import jakarta.annotation.PostConstruct;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
+import ogs.switchon.common.hibernate_loader.CommonHibernateDAO;
+import ogs.switchon.common.hibernate_loader.HibernateSessionFactoryHelper;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import ogs.switchon.common.hibernate_loader.CommonHibernateDAO;
-import ogs.switchon.common.hibernate_loader.HibernateSessionFactoryHelper;
-import org.springframework.core.env.Environment;
 
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class WalletServiceImple implements WalletService {
@@ -48,26 +41,20 @@ public class WalletServiceImple implements WalletService {
             session = HibernateSessionFactoryHelper.getSession();
 
             // Check if mobile number already exists
-            Query<Wallet> mobileNumberQuery = session.createQuery("FROM Wallet WHERE mobileNumber = :mobileNumber", Wallet.class);
-            mobileNumberQuery.setParameter("mobileNumber", newWallet.getMobileNumber());
-            List<Wallet> existingMobileNumber = mobileNumberQuery.getResultList();
-
+            List<Wallet> existingMobileNumber = CommonHibernateDAO.getObjectsWithPropertyAndValue(Wallet.class, "mobileNumber", newWallet.getMobileNumber(), session);
             if (!existingMobileNumber.isEmpty()) {
                 throw new UserAlreadyExistException("Mobile Number already exists: " + newWallet.getMobileNumber());
             }
 
             // Check if username already exists
-            Query<Wallet> usernameQuery = session.createQuery("FROM Wallet WHERE username = :username", Wallet.class);
-            usernameQuery.setParameter("username", newWallet.getUsername());
-            List<Wallet> existingUsername = usernameQuery.getResultList();
-
+            List<Wallet> existingUsername = CommonHibernateDAO.getObjectsWithPropertyAndValue(Wallet.class, "username", newWallet.getUsername(), session);
             if (!existingUsername.isEmpty()) {
                 throw new UserAlreadyExistException("Username already exists: " + newWallet.getUsername());
             }
 
             // Set initial balance and save the wallet
             newWallet.setBalance(0);
-            CommonHibernateDAO.updateObject(newWallet, session);
+            CommonHibernateDAO.insertObject(newWallet, session);
 
             return newWallet;
         } catch (Exception e) {
@@ -76,6 +63,7 @@ public class WalletServiceImple implements WalletService {
             HibernateSessionFactoryHelper.closeSession(); // Close the session in the finally block
         }
     }
+
 
 
     @Transactional
@@ -229,7 +217,7 @@ public class WalletServiceImple implements WalletService {
     public List<Transactions> getAllTransactions() throws TransactionNotFoundException {
         Session session = HibernateSessionFactoryHelper.getSession();
         try {
-            List<Transactions> transactionList = CommonHibernateDAO.getAllObjectsSorted(Transactions.class, new String[]{"id"}, "DESC", session);
+            List<Transactions> transactionList = CommonHibernateDAO.getAllObjects(Transactions.class, session);
 
             if (transactionList.isEmpty()) {
                 throw new WalletNotFoundException("No transactions found");
@@ -247,7 +235,7 @@ public class WalletServiceImple implements WalletService {
     public List<Transactions> getTransactionByAmount(double amount) throws TransactionNotFoundException {
         Session session = HibernateSessionFactoryHelper.getSession();
         try {
-            List<Transactions> transactionsByAmount = CommonHibernateDAO.getAllObjectsSorted(Transactions.class, new String[]{"amount"}, "DESC", session);
+            List<Transactions> transactionsByAmount = CommonHibernateDAO.getAllObjects(Transactions.class, session);
 
             if (transactionsByAmount.isEmpty()) {
                 throw new TransactionNotFoundException("No transactions found for amount: " + amount);
