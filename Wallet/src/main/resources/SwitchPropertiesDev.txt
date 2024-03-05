@@ -1,9 +1,9 @@
 ###Db Properties#####
 hibernate.connection.username=pt-switch-dev
-hibernate.connection.url=jdbc:sqlserver://switch.paytabs.net:1433;databaseName=pt-switchon-switch;schemaName=dbo;
+hibernate.connection.password=Y8aXHP0FlbVt6HRea4ss
+hibernate.connection.url=jdbc:sqlserver://switch.paytabs.net;databaseName=pt-switchon-switch;schemaName=dbo;
 hibernate.dialect=org.hibernate.dialect.SQLServer2012Dialect
 hibernate.connection.driver_class=com.microsoft.sqlserver.jdbc.SQLServerDriver
-hibernate.connection.password=Y8aXHP0FlbVt6HRea4ss
 hibernate.connection.autoReconnect=true
 hibernate.current_session_context_class=thread
 #hibernate.default_schema=dbo
@@ -19,9 +19,6 @@ hibernate.c3p0.testConnectionOnCheckout=false
 hibernate.c3p0.acquireRetryDelay=1000
 hibernate.c3p0.acquireRetryAttempts=30
 hibernate.c3p0.breakAfterAcquireFailure=false
-hibernate.generate_statistics = true
-encrypt=true
-trustServerCertificate=false
 ###Switch Properties#####
 switch.saltpassword=386077668F51
 System.LicenseCode=332534-266988-568434-973063

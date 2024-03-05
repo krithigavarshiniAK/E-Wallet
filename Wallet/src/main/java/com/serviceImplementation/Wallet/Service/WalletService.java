@@ -1,7 +1,9 @@
 package com.serviceImplementation.Wallet.Service;
 
-import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
-import com.serviceImplementation.Wallet.CustomException.*;
+import com.serviceImplementation.Wallet.CustomException.TransactionNotFoundException;
+import com.serviceImplementation.Wallet.CustomException.UserNotFoundException;
+import com.serviceImplementation.Wallet.CustomException.WalletNotFoundException;
+import com.serviceImplementation.Wallet.CustomException.TopUpLimitExceededException;
 import com.serviceImplementation.Wallet.model.Transactions;
 import com.serviceImplementation.Wallet.model.Wallet;
 
@@ -27,5 +29,7 @@ public interface WalletService {
 
 
     public List<Transactions> getTransactionByAmount(double amount) throws TransactionNotFoundException;
+
 }
+
 

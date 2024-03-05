@@ -1,6 +1,6 @@
 package com.serviceImplementation.Wallet.Service.Imple;
 
-import com.serviceImplementation.Wallet.CustomException.IllegalArgumentException;
+import com.serviceImplementation.Wallet.Config.ExternalPropertyConfig;
 import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transactions;
@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.lang.IllegalArgumentException;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -23,16 +24,21 @@ import java.util.List;
 @Service
 public class WalletServiceImple implements WalletService {
 
+    public WalletServiceImple() {
+        System.out.println("Wallet Service Constructor is working....");
+    }
+
+    @Autowired
+    private ExternalPropertyConfig externalPropertyConfig;
+
 
     @Value("${fund.transfer.limit}")
     private double transferlimit;
-
     @Value("${top.Up.limit}")
     private double topuplimit;
 
     @Autowired
     private SessionFactory sessionFactory;
-
 
     @Transactional
     public Wallet createWallet(Wallet newWallet) throws UserNotFoundException, UserAlreadyExistException {
@@ -60,7 +66,7 @@ public class WalletServiceImple implements WalletService {
         } catch (Exception e) {
             throw new UserNotFoundException("Wallet Creation Unsuccessful.", e);
         } finally {
-            HibernateSessionFactoryHelper.closeSession(); // Close the session in the finally block
+            HibernateSessionFactoryHelper.closeSession();
         }
     }
 
@@ -80,7 +86,7 @@ public class WalletServiceImple implements WalletService {
         } catch (Exception e) {
             throw new RuntimeException("Failed to fetch wallets.", e);
         } finally {
-            HibernateSessionFactoryHelper.closeSession(); // Close the session in the finally block
+            HibernateSessionFactoryHelper.closeSession();
         }
     }
 
@@ -248,6 +254,8 @@ public class WalletServiceImple implements WalletService {
             HibernateSessionFactoryHelper.closeSession(); // Close the session in the finally block
         }
     }
+
+
 }
 
 

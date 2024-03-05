@@ -23,7 +23,7 @@
     <!-- <logger name="com.example.package" level="DEBUG" /> -->
     <logger name="com.another.package" level="TRACE" />
 
-    <logger name="org.springframework" level="ERROR" />
-    <logger name="org.hibernate" level="ERROR" />
+     <logger name="org.springframework" level="ERROR" />
+     <logger name="org.hibernate" level="ERROR" />
 
 </configuration>
