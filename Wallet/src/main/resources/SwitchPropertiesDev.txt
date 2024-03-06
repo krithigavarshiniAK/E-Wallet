@@ -6,7 +6,7 @@ hibernate.dialect=org.hibernate.dialect.SQLServer2012Dialect
 hibernate.connection.driver_class=com.microsoft.sqlserver.jdbc.SQLServerDriver
 hibernate.connection.autoReconnect=true
 hibernate.current_session_context_class=thread
-#hibernate.default_schema=dbo
+hibernate.default_schema=dbo
 hibernate.temp.use_jdbc_metadata_defaults=true
 ###C3P0 Properties#####
 hibernate.c3p0.min_size=5

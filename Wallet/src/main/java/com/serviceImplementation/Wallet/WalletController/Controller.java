@@ -19,10 +19,8 @@ import java.util.List;
 @RequestMapping("/api/v1/wallet")
 
 public class Controller {
-
     @Autowired
     WalletService walletService;
-
 
     @GetMapping("/first")
     public String first() {

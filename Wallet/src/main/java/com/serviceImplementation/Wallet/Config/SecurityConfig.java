@@ -1,7 +1,6 @@
 package com.serviceImplementation.Wallet.Config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -17,7 +16,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableMethodSecurity
-@ComponentScan(basePackages = "com.serviceImplementation.Wallet.Config")
 public class SecurityConfig {
     @Bean
     public static PasswordEncoder passwordEncoder(){
@@ -54,5 +52,8 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(krithi, admin);
     }
 
-
+    @Bean
+    public ExternalPropertyConfig externalPropertyConfig() {
+        return new ExternalPropertyConfig();
+    }
 }
