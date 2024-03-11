@@ -14,6 +14,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 import java.lang.IllegalArgumentException;
 import java.util.Arrays;
 import java.util.Date;
@@ -21,6 +22,10 @@ import java.util.List;
 
 @Service
 public class WalletServiceImple implements WalletService {
+
+    public WalletServiceImple() {
+        System.out.println("4");
+    }
 
     @Value("${fund.transfer.limit}")
     private double transferlimit;
@@ -32,11 +37,14 @@ public class WalletServiceImple implements WalletService {
     ExternalPropertyConfig externalPropertyConfig;
 
 
+
     @Override
     public Wallet createWallet(Wallet newWallet) throws UserNotFoundException, UserAlreadyExistException {
-        Session session = null;
         try {
-            session = externalPropertyConfig.getSession();
+            System.out.println("Inside create wallet Api");
+            Session session = HibernateSessionFactoryHelper.getSession();
+            System.out.println("Session created");
+            System.out.println("After Session creation");
 
             List<Wallet> existingMobileNumber = CommonHibernateDAO.getObjectsWithPropertyAndValue(Wallet.class, "mobileNumber", newWallet.getMobileNumber(), session);
             if (!existingMobileNumber.isEmpty()) {
@@ -53,6 +61,7 @@ public class WalletServiceImple implements WalletService {
 
             return newWallet;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new UserNotFoundException("Wallet Creation Unsuccessful.", e);
         } finally {
             HibernateSessionFactoryHelper.closeSession();
@@ -61,9 +70,9 @@ public class WalletServiceImple implements WalletService {
 
     @Override
     public List<Wallet> getAllWallets() throws WalletNotFoundException {
-        Session session = externalPropertyConfig.getSession();
+        Session session = HibernateSessionFactoryHelper.getSession();
         try {
-            List<Wallet> walletList = CommonHibernateDAO.getAllObjectsSorted(Wallet.class, new String[]{"id"}, "DESC", session);
+            List<Wallet> walletList = CommonHibernateDAO.getAllObjectsSorted(Wallet.class, new String[]{"id"}, "ASC", session);
 
             if (walletList.isEmpty()) {
                 throw new WalletNotFoundException("No wallets found");
@@ -79,7 +88,7 @@ public class WalletServiceImple implements WalletService {
 
     @Transactional
     public Wallet topup(long walletId, Wallet walletRequest) throws IllegalArgumentException, TopUpLimitExceededException, WalletNotFoundException {
-        try (Session session = externalPropertyConfig.getSession()) {
+        try (Session session = HibernateSessionFactoryHelper.getSession()) {
             session.beginTransaction();
 
             Wallet wallet = CommonHibernateDAO.getObjectWithId(Wallet.class, walletId, session);
@@ -111,7 +120,7 @@ public class WalletServiceImple implements WalletService {
 
     @Transactional
     public Double checkBalance(long walletId) throws WalletNotFoundException {
-        try (Session session = externalPropertyConfig.getSession()) {
+        try (Session session = HibernateSessionFactoryHelper.getSession()) {
             session.beginTransaction();
 
             Wallet wallet = CommonHibernateDAO.getObjectWithId(Wallet.class, walletId, session); // Use getObjectWithId method
@@ -132,7 +141,7 @@ public class WalletServiceImple implements WalletService {
 
     @Override
     public String deleteWalletById(long walletId) throws WalletNotFoundException {
-        try (Session session = externalPropertyConfig.getSession()) {
+        try (Session session = HibernateSessionFactoryHelper.getSession()) {
             session.beginTransaction();
 
             CommonHibernateDAO.deleteObjectWithId(Wallet.class, walletId, session); // Use deleteObjectWithId method
@@ -147,7 +156,7 @@ public class WalletServiceImple implements WalletService {
 
     @Transactional
     public List<Wallet> fundTransfer(long source, long target, Wallet transferAmount) throws InsufficientBalanceException, WalletNotFoundException {
-        try (Session session = externalPropertyConfig.getSession()) {
+        try (Session session = HibernateSessionFactoryHelper.getSession()) {
             Transaction transaction = session.beginTransaction();
 
             Wallet sourceWallet = CommonHibernateDAO.getObjectWithId(Wallet.class, source, session);
@@ -203,7 +212,7 @@ public class WalletServiceImple implements WalletService {
 
     @Override
     public List<Transactions> getAllTransactions() throws TransactionNotFoundException {
-        Session session = externalPropertyConfig.getSession();
+        Session session = HibernateSessionFactoryHelper.getSession();
         try {
             List<Transactions> transactionList = CommonHibernateDAO.getAllObjects(Transactions.class, session);
 
@@ -221,7 +230,7 @@ public class WalletServiceImple implements WalletService {
 
     @Override
     public List<Transactions> getTransactionByAmount(double amount) throws TransactionNotFoundException {
-        Session session = externalPropertyConfig.getSession();
+        Session session = HibernateSessionFactoryHelper.getSession();
         try {
             List<Transactions> transactionsByAmount = CommonHibernateDAO.getAllObjects(Transactions.class, session);
 

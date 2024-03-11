@@ -19,6 +19,10 @@ import java.util.List;
 @RequestMapping("/api/v1/wallet")
 
 public class Controller {
+    public Controller() {
+        System.out.println("5");
+    }
+
     @Autowired
     WalletService walletService;
 
@@ -26,8 +30,6 @@ public class Controller {
     public String first() {
         return "Hello, World!";
     }
-
-
     @PreAuthorize("hasRole('ADMIN')")
     //@CrossOrigin
     @PostMapping("/createWallet")

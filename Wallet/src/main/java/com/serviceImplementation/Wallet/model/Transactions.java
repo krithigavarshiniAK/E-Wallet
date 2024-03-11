@@ -15,6 +15,10 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public Transactions() {
+        System.out.println("3");
+    }
+
     @ManyToOne
     @JoinColumn(name = "wallet_id")
     private Wallet wallet;

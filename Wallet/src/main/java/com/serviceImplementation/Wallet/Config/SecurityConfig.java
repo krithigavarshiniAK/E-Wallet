@@ -17,6 +17,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfig {
+    public SecurityConfig() {
+        System.out.println("7");
+    }
+
     @Bean
     public static PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -24,7 +28,6 @@ public class SecurityConfig {
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
                         .anyRequest().authenticated())
@@ -52,8 +55,19 @@ public class SecurityConfig {
         return new InMemoryUserDetailsManager(krithi, admin);
     }
 
+    /*
     @Bean
     public ExternalPropertyConfig externalPropertyConfig() {
         return new ExternalPropertyConfig();
     }
+
+    @Bean
+    public DataSource getDataSource() {
+        DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+        dataSourceBuilder.username("pt-switch-dev");
+        dataSourceBuilder.password("Y8aXHP0FlbVt6HRea4ss");
+        dataSourceBuilder.url("jdbc:sqlserver://switch.paytabs.net;databaseName=pt-switchon-switch;schemaName=dbo");
+        dataSourceBuilder.driverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        return dataSourceBuilder.build();
+    }*/
 }

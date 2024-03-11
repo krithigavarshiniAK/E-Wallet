@@ -51,11 +51,6 @@
 			<version>4.5.13</version>
 		</dependency>
 		<dependency>
-			<groupId>com.microsoft.sqlserver</groupId>
-			<artifactId>mssql-jdbc</artifactId>
-			<version>12.6.1.jre11</version>
-		</dependency>
-		<dependency>
 			<groupId>ogs.switchon.common</groupId>
 			<artifactId>hibernate-loader</artifactId>
 		</dependency>

@@ -19,6 +19,7 @@ hibernate.c3p0.testConnectionOnCheckout=false
 hibernate.c3p0.acquireRetryDelay=1000
 hibernate.c3p0.acquireRetryAttempts=30
 hibernate.c3p0.breakAfterAcquireFailure=false
+encrypt=false
 ###Switch Properties#####
 switch.saltpassword=386077668F51
 System.LicenseCode=332534-266988-568434-973063

@@ -11,6 +11,10 @@ import java.time.LocalDateTime;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    public GlobalExceptionHandler() {
+        System.out.println("6");
+    }
+
     @ExceptionHandler(value = {WalletNotFoundException.class})
     public ResponseEntity<ErrorResponse> handleWalletNotFoundException
             (WalletNotFoundException walletNotFoundException,WebRequest req)
