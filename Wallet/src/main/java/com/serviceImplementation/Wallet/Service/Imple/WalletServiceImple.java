@@ -5,7 +5,6 @@ import com.serviceImplementation.Wallet.CustomException.*;
 import com.serviceImplementation.Wallet.Service.WalletService;
 import com.serviceImplementation.Wallet.model.Transactions;
 import com.serviceImplementation.Wallet.model.Wallet;
-import jakarta.transaction.Transactional;
 import ogs.switchon.common.hibernate_loader.CommonHibernateDAO;
 import ogs.switchon.common.hibernate_loader.HibernateSessionFactoryHelper;
 import org.hibernate.HibernateException;
@@ -15,10 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.lang.IllegalArgumentException;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class WalletServiceImple implements WalletService {
@@ -36,32 +34,42 @@ public class WalletServiceImple implements WalletService {
     @Autowired
     ExternalPropertyConfig externalPropertyConfig;
 
-
-
     @Override
     public Wallet createWallet(Wallet newWallet) throws UserNotFoundException, UserAlreadyExistException {
+        Transaction transaction = null;
         try {
             System.out.println("Inside create wallet Api");
             Session session = HibernateSessionFactoryHelper.getSession();
             System.out.println("Session created");
-            System.out.println("After Session creation");
+            transaction = session.beginTransaction();
 
-            List<Wallet> existingMobileNumber = CommonHibernateDAO.getObjectsWithPropertyAndValue(Wallet.class, "mobileNumber", newWallet.getMobileNumber(), session);
+            Map<String, Object> mapmobile = new HashMap<>();
+            mapmobile.put("mobileNumber", newWallet.getMobileNumber());
+            List<Wallet> existingMobileNumber = CommonHibernateDAO.getObjectsWithPropertiesAndValues(Wallet.class, mapmobile, session);
             if (!existingMobileNumber.isEmpty()) {
                 throw new UserAlreadyExistException("Mobile Number already exists: " + newWallet.getMobileNumber());
             }
 
-            List<Wallet> existingUsername = CommonHibernateDAO.getObjectsWithPropertyAndValue(Wallet.class, "username", newWallet.getUsername(), session);
+            Map<String, Object> mapuser = new HashMap<>();
+            mapuser.put("username", newWallet.getUsername());
+            List<Wallet> existingUsername = CommonHibernateDAO.getObjectsWithPropertiesAndValues(Wallet.class, mapuser, session);
             if (!existingUsername.isEmpty()) {
                 throw new UserAlreadyExistException("Username already exists: " + newWallet.getUsername());
             }
 
+
             newWallet.setBalance(0);
             CommonHibernateDAO.insertObject(newWallet, session);
+            session.getTransaction().commit();
 
             return newWallet;
+        } catch (UserAlreadyExistException e) {
+            throw e;
         } catch (Exception e) {
             e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             throw new UserNotFoundException("Wallet Creation Unsuccessful.", e);
         } finally {
             HibernateSessionFactoryHelper.closeSession();
@@ -70,6 +78,7 @@ public class WalletServiceImple implements WalletService {
 
     @Override
     public List<Wallet> getAllWallets() throws WalletNotFoundException {
+        System.out.println("Inside get All Wallets api");
         Session session = HibernateSessionFactoryHelper.getSession();
         try {
             List<Wallet> walletList = CommonHibernateDAO.getAllObjectsSorted(Wallet.class, new String[]{"id"}, "ASC", session);
@@ -86,22 +95,21 @@ public class WalletServiceImple implements WalletService {
         }
     }
 
-    @Transactional
+    @Override
     public Wallet topup(long walletId, Wallet walletRequest) throws IllegalArgumentException, TopUpLimitExceededException, WalletNotFoundException {
-        try (Session session = HibernateSessionFactoryHelper.getSession()) {
+        System.out.println("Inside top up api");
+        try {
+            Session session = HibernateSessionFactoryHelper.getSession();
             session.beginTransaction();
 
             Wallet wallet = CommonHibernateDAO.getObjectWithId(Wallet.class, walletId, session);
             if (wallet == null) {
                 throw new WalletNotFoundException("Wallet Not Present " + walletId);
             }
-
             double topUpAmount = walletRequest.getBalance();
-
             if (topUpAmount < 0) {
                 throw new IllegalArgumentException("Top-up amount cannot be negative");
             }
-
             if (topUpAmount > topuplimit) {
                 throw new TopUpLimitExceededException("Top-up amount exceeds limit");
             }
@@ -139,7 +147,7 @@ public class WalletServiceImple implements WalletService {
         }
     }
 
-    @Override
+    @Transactional
     public String deleteWalletById(long walletId) throws WalletNotFoundException {
         try (Session session = HibernateSessionFactoryHelper.getSession()) {
             session.beginTransaction();
@@ -210,7 +218,7 @@ public class WalletServiceImple implements WalletService {
         CommonHibernateDAO.insertObject(targetTransactions, session);
     }
 
-    @Override
+    @Transactional
     public List<Transactions> getAllTransactions() throws TransactionNotFoundException {
         Session session = HibernateSessionFactoryHelper.getSession();
         try {
@@ -228,7 +236,7 @@ public class WalletServiceImple implements WalletService {
         }
     }
 
-    @Override
+    @Transactional
     public List<Transactions> getTransactionByAmount(double amount) throws TransactionNotFoundException {
         Session session = HibernateSessionFactoryHelper.getSession();
         try {

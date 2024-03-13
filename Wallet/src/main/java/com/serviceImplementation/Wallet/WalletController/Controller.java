@@ -30,6 +30,7 @@ public class Controller {
     public String first() {
         return "Hello, World!";
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     //@CrossOrigin
     @PostMapping("/createWallet")
@@ -88,7 +89,6 @@ public class Controller {
         List<Transactions> allTransactions = walletService.getTransactionByAmount(amount);
         return new ResponseEntity<>(allTransactions,HttpStatus.OK);
     }
-
 }
 
 

@@ -1,15 +1,15 @@
 package com.serviceImplementation.Wallet.model;
 
 
-import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.Date;
 @Entity
 @Getter
 @Setter
-@Table(name = "transaction_s")
+@Table(name = "transaction_summary")
 public class Transactions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +32,23 @@ public class Transactions {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
+
+	public void setTimestamp(Date date) {
+		this.timestamp = date;
+	}
+
+	public void setAmount(double transferBalance) {
+		this.amount = transferBalance;
+		
+	}
+
+	public void setTransactionType(String string) {
+		this.TransactionType = string;
+	}
+
+	public void setWallet(Wallet targetWallet) {
+		this.wallet = targetWallet;
+	}
 
 }
 

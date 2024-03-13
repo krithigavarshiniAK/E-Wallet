@@ -14,7 +14,6 @@ public class WalletApplication
     public WalletApplication() {
         System.out.println("1");
     }
-
     public static void main(String[] args)
 	{
 		SpringApplication.run(WalletApplication.class, args);

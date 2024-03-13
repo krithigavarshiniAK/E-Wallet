@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Data Table</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>API Data Table</h1>
+    <form id="addWalletForm">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody id="data-table-body">
+        <!-- Table body will be populated dynamically -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      // API URL
+      var apiUrl = "http://localhost:9090/api/getAllWallets";
+
+      // Fetch data from API
+      $.ajax({
+        url: apiUrl,
+        type: 'GET',
+        dataType: 'json',
+		beforeSend: function(xhr) {
+					xhr.setRequestHeader("Authorization", "Basic " + btoa("admin:admin"));
+		},
+        success: function(data) {
+          // Populate table with data
+          populateTable(data);
+        },
+        error: function(xhr, status, error) {
+          console.error("Error fetching data:", error);
+        }
+      });
+
+      // Function to populate table with data
+      function populateTable(data) {
+        // Clear existing table rows
+        $('#data-table-body').empty();
+
+        // Iterate over each object in the data array
+		$.each(data, function(index, item) {
+    // Create a new row for each object
+    var row = '<tr>' +
+                '<td>' + item.walletId + '</td>' +
+                '<td>' + item.username + '</td>' +
+                '<td>' + item.email + '</td>' +
+                '<td>' + item.balance + '</td>' +
+                '<td>' +
+                    '<button class="btn btn-success btn-topup" data-walletid="' + item.walletId + '">TopUp</button>' +
+                    '<button class="btn btn-primary btn-transfer" data-walletid="' + item.walletId + '">Fund Transfer</button>' +
+                    '<button class="btn btn-danger btn-delete" data-walletid="' + item.walletId + '">Delete</button>' +
+                '</td>' +
+            '</tr>';
+    // Append the row to the table body
+    $('#data-table-body').append(row);
+});
+
+// Function to handle TopUp button click
+$(document).on('click', '.btn-topup', function() {
+    var wId = $(this).data('walletid');
+	var formData = {
+		walletId: wId,
+		balance:20
+		};
+		
+    // Implement your logic to handle TopUp API call
+	// POST request to add wallet with Basic Authentication
+			$.ajax({
+				url: 'http://localhost:9090/api/topUpById',
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(formData),
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader("Authorization", "Basic " + btoa("admin:admin"));
+				},
+				success: function(response) {
+					populateTable();
+				},
+				error: function(xhr, status, error) {
+					console.error("Error adding wallet:", error);
+				}
+			});
+});
+
+// Function to handle Fund Transfer button click
+$(document).on('click', '.btn-transfer', function() {
+    var walletId = $(this).data('walletid');
+    // Implement your logic to handle Fund Transfer API call
+});
+
+// Function to handle Delete button click
+$(document).on('click', '.btn-delete', function() {
+    var walletId = $(this).data('walletid');
+    // Implement your logic to handle Delete API call
+
+
+		  // Perform API call for Delete using walletId
+		  // Example:
+		  // $.ajax({
+		  //   url: '/api/delete',
+		  //   type: 'DELETE',
+		  //   data: { walletId: walletId },
+		  //   success: function(response) {
+		  //     // Handle response
+		  //   },
+		  //   error: function(xhr, status, error) {
+		  //     console.error("Error deleting wallet:", error);
+		  //   }
+		  // });
+		});
+
+      }
+
+      // Handle form submission
+      // Handle form submission
+		$('#addWalletForm').submit(function(event) {
+			event.preventDefault(); // Prevent default form submission
+
+			// Get form data
+			var formData = {
+				username: $('#username').val(),
+				email: $('#email').val()
+			};
+
+			// POST request to add wallet with Basic Authentication
+			$.ajax({
+				url: 'http://localhost:9090/api/createWallet',
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(formData),
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader("Authorization", "Basic " + btoa("admin:admin"));
+				},
+				success: function(response) {
+					// Display response in table
+					var newRow = '<tr>' +
+						'<td>' + response.walletId + '</td>' +
+						'<td>' + response.username + '</td>' +
+						'<td>' + response.email + '</td>' +
+						'<td>' + response.balance + '</td>' +
+						'<td>' +
+							'<button class="btn btn-success btn-topup" data-walletid="' + response.walletId + '">TopUp</button>' +
+							'<button class="btn btn-primary btn-transfer" data-walletid="' + response.walletId + '">Fund Transfer</button>' +
+							'<button class="btn btn-danger btn-delete" data-walletid="' + response.walletId + '">Delete</button>' +
+						'</td>' +
+
+						'</tr>';
+					$('#data-table-body').append(newRow);
+				},
+				error: function(xhr, status, error) {
+					console.error("Error adding wallet:", error);
+				}
+			});
+		});
+    });
+  </script>
+</body>
+</html>
