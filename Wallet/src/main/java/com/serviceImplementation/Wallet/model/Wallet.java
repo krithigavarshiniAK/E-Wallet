@@ -10,6 +10,10 @@ import javax.persistence.*;
 @Setter
 @Getter
 public class Wallet {
+    public Wallet()
+    {
+        System.out.println("7");
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +23,6 @@ public class Wallet {
     @Column(name = "Username")
     private String username;
 
-   public Wallet()
-   {
-       System.out.println("2");
-   }
 
     @Column(name = "MobileNumber")
     private String mobileNumber;
@@ -53,6 +53,4 @@ public class Wallet {
     public Object getMobileNumber() {
 		return mobileNumber;
 	}
-
-
 }

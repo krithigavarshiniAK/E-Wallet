@@ -11,7 +11,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @PropertySource("classpath:SwitchPropertiesDev.txt")
 public class WalletApplication
 {
-    public WalletApplication() {
+    public WalletApplication()
+    {
         System.out.println("1");
     }
     public static void main(String[] args)
@@ -19,3 +20,7 @@ public class WalletApplication
 		SpringApplication.run(WalletApplication.class, args);
 	}
 }
+
+
+
+

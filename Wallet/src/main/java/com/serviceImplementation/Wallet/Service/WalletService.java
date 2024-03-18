@@ -1,9 +1,9 @@
 package com.serviceImplementation.Wallet.Service;
 
+import com.serviceImplementation.Wallet.CustomException.TopUpLimitExceededException;
 import com.serviceImplementation.Wallet.CustomException.TransactionNotFoundException;
 import com.serviceImplementation.Wallet.CustomException.UserNotFoundException;
 import com.serviceImplementation.Wallet.CustomException.WalletNotFoundException;
-import com.serviceImplementation.Wallet.CustomException.TopUpLimitExceededException;
 import com.serviceImplementation.Wallet.model.Transactions;
 import com.serviceImplementation.Wallet.model.Wallet;
 
@@ -17,7 +17,6 @@ public interface WalletService {
     public List<Wallet> getAllWallets() throws WalletNotFoundException;
 
     public Wallet topup(long walletId, Wallet walletRequest) throws IllegalArgumentException, TopUpLimitExceededException, WalletNotFoundException;
-
 
     public Double checkBalance(long walletId) throws WalletNotFoundException;
 

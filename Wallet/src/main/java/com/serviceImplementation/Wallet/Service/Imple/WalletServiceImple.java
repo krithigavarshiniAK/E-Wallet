@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.lang.IllegalArgumentException;
 import java.util.*;
 
@@ -22,7 +21,7 @@ import java.util.*;
 public class WalletServiceImple implements WalletService {
 
     public WalletServiceImple() {
-        System.out.println("4");
+        System.out.println("5");
     }
 
     @Value("${fund.transfer.limit}")
@@ -56,7 +55,6 @@ public class WalletServiceImple implements WalletService {
             if (!existingUsername.isEmpty()) {
                 throw new UserAlreadyExistException("Username already exists: " + newWallet.getUsername());
             }
-
 
             newWallet.setBalance(0);
             CommonHibernateDAO.insertObject(newWallet, session);
@@ -126,12 +124,12 @@ public class WalletServiceImple implements WalletService {
         }
     }
 
-    @Transactional
+    @Override
     public Double checkBalance(long walletId) throws WalletNotFoundException {
         try (Session session = HibernateSessionFactoryHelper.getSession()) {
             session.beginTransaction();
 
-            Wallet wallet = CommonHibernateDAO.getObjectWithId(Wallet.class, walletId, session); // Use getObjectWithId method
+            Wallet wallet = CommonHibernateDAO.getObjectWithId(Wallet.class, walletId, session);
             if (wallet == null) {
                 throw new WalletNotFoundException("Wallet not found with ID: " + walletId);
             }
@@ -147,22 +145,34 @@ public class WalletServiceImple implements WalletService {
         }
     }
 
-    @Transactional
+    @Override
     public String deleteWalletById(long walletId) throws WalletNotFoundException {
         try (Session session = HibernateSessionFactoryHelper.getSession()) {
             session.beginTransaction();
 
-            CommonHibernateDAO.deleteObjectWithId(Wallet.class, walletId, session); // Use deleteObjectWithId method
+            Wallet wallet = CommonHibernateDAO.getObjectWithId(Wallet.class, walletId, session);
+            if (wallet == null) {
+                throw new WalletNotFoundException("Wallet not found with ID: " + walletId);
+            }
+
+            double balance = wallet.getBalance();
+            if (balance > 0) {
+                throw new WalletNotFoundException("Cannot delete wallet with ID: " + walletId + " with balance greater than zero.");
+            }
+
+            CommonHibernateDAO.deleteObjectWithId(Wallet.class, walletId, session);
             session.getTransaction().commit();
+
             return "Wallet Deleted Successfully!";
         } catch (Exception e) {
-            throw new RuntimeException("Failed to delete wallet.", e);
+            throw new RuntimeException("Failed to delete wallet with ID: " + walletId, e);
         } finally {
             HibernateSessionFactoryHelper.closeSession();
         }
     }
 
-    @Transactional
+
+    @Override
     public List<Wallet> fundTransfer(long source, long target, Wallet transferAmount) throws InsufficientBalanceException, WalletNotFoundException {
         try (Session session = HibernateSessionFactoryHelper.getSession()) {
             Transaction transaction = session.beginTransaction();
@@ -218,7 +228,7 @@ public class WalletServiceImple implements WalletService {
         CommonHibernateDAO.insertObject(targetTransactions, session);
     }
 
-    @Transactional
+    @Override
     public List<Transactions> getAllTransactions() throws TransactionNotFoundException {
         Session session = HibernateSessionFactoryHelper.getSession();
         try {
@@ -236,7 +246,7 @@ public class WalletServiceImple implements WalletService {
         }
     }
 
-    @Transactional
+    @Override
     public List<Transactions> getTransactionByAmount(double amount) throws TransactionNotFoundException {
         Session session = HibernateSessionFactoryHelper.getSession();
         try {
@@ -255,8 +265,13 @@ public class WalletServiceImple implements WalletService {
     }
 }
 
-
-
+//
+//SELECT TOP (1000) [WalletId]
+//        ,[Username]
+//        ,[MobileNumber]
+//        ,[Balance]
+//FROM [pt-switchon-switch].[dbo].[wallet_config]
+//
 
 
 

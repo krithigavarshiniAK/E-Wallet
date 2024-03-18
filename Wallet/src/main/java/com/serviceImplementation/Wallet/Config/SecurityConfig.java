@@ -1,6 +1,7 @@
 package com.serviceImplementation.Wallet.Config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -15,10 +16,11 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@ComponentScan(basePackages = "com.serviceImplementation.Wallet.Config")
 @EnableMethodSecurity
 public class SecurityConfig {
     public SecurityConfig() {
-        System.out.println("7");
+        System.out.println("3");
     }
 
     @Bean

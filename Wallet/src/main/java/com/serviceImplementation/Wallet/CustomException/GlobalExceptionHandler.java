@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class GlobalExceptionHandler {
 
     public GlobalExceptionHandler() {
-        System.out.println("6");
+        System.out.println("4");
     }
 
     @ExceptionHandler(value = {WalletNotFoundException.class})

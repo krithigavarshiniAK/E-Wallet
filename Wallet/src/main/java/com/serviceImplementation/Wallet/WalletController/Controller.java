@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Controller {
     public Controller() {
-        System.out.println("5");
+        System.out.println("6");
     }
 
     @Autowired
@@ -48,19 +48,19 @@ public class Controller {
     }
 
     @PostMapping("/topUpById")
-    public ResponseEntity<Wallet> topUp(@RequestParam long walletId, @RequestBody Wallet walletRequest)throws IllegalArgumentException, TopUpLimitExceededException,WalletNotFoundException {
+    public ResponseEntity<Wallet> topUp(@RequestParam("walletId") long walletId, @RequestBody Wallet walletRequest)throws IllegalArgumentException, TopUpLimitExceededException,WalletNotFoundException {
         Wallet wallet = walletService.topup(walletId, walletRequest);
         return new ResponseEntity<Wallet>(wallet, HttpStatus.ACCEPTED);
     }
 
     @GetMapping("/checkBalance")
-    public ResponseEntity<Double> checkBalance(@RequestParam long walletId) throws WalletNotFoundException{
+    public ResponseEntity<Double> checkBalance(@RequestParam("walletId") long walletId) throws WalletNotFoundException{
          Double balance = walletService.checkBalance(walletId);
          return new ResponseEntity<>(balance, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")
-    public ResponseEntity<String> deleteWalletById(@RequestParam long walletId) throws WalletNotFoundException{
+    public ResponseEntity<String> deleteWalletById(@RequestParam("walletId") long walletId) throws WalletNotFoundException{
        String result=walletService.deleteWalletById(walletId);
        return new ResponseEntity<>(result,HttpStatus.OK);
     }
@@ -68,8 +68,8 @@ public class Controller {
 
     @PostMapping("/fundTransfer")
     public ResponseEntity<List<Wallet>> fundTransfer(
-            @RequestParam long source,
-            @RequestParam long target,
+            @RequestParam("source") long source,
+            @RequestParam("target") long target,
             @RequestBody Wallet transferAmount) {
         List<Wallet> WalletList = walletService.fundTransfer(source, target, transferAmount);
         return new ResponseEntity<List<Wallet>>(WalletList,HttpStatus.OK);
@@ -85,7 +85,7 @@ public class Controller {
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/getTransactionByAmount")
-    public ResponseEntity<List<Transactions>> getTransactionByAmount(@RequestParam double amount) throws TransactionNotFoundException{
+    public ResponseEntity<List<Transactions>> getTransactionByAmount(@RequestParam("amount") double amount) throws TransactionNotFoundException{
         List<Transactions> allTransactions = walletService.getTransactionByAmount(amount);
         return new ResponseEntity<>(allTransactions,HttpStatus.OK);
     }

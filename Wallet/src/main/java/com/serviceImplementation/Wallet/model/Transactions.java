@@ -16,11 +16,11 @@ public class Transactions {
     private Long id;
 
     public Transactions() {
-        System.out.println("3");
+        System.out.println("8");
     }
 
     @ManyToOne
-    @JoinColumn(name = "wallet_id")
+    @JoinColumn(name = "WalletId")
     private Wallet wallet;
 
     @Column
@@ -29,7 +29,7 @@ public class Transactions {
     @Column
     private String TransactionType;
 
-    @Column
+    @Column(name="CreatedDate")
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
 
@@ -39,7 +39,7 @@ public class Transactions {
 
 	public void setAmount(double transferBalance) {
 		this.amount = transferBalance;
-		
+
 	}
 
 	public void setTransactionType(String string) {

@@ -2,7 +2,6 @@ package com.serviceImplementation.Wallet.Config;
 
 import ogs.switchon.common.hibernate_loader.HibernateSessionFactoryHelper;
 import org.springframework.stereotype.Component;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -11,7 +10,7 @@ import java.util.Properties;
 public class ExternalPropertyConfig {
 
     public ExternalPropertyConfig() {
-        System.out.println("ExternalPropertyConfig bean is being created. 8");
+        System.out.println("ExternalPropertyConfig bean is being created. 2");
         loadProperties();
     }
 
@@ -33,10 +32,6 @@ public class ExternalPropertyConfig {
         HibernateSessionFactoryHelper.loadProperties(properties,"com.serviceImplementation.Wallet.model");
         System.out.println("properties are loaded......");
     }
-    /*
-    public Session getSession() {
-        return HibernateSessionFactoryHelper.getSession();
-    }*/
 }
 
 
