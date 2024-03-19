@@ -23,8 +23,8 @@ public class GeoLocationConfig {
     @Bean
     public DatabaseReader databaseReader(){
         try{
-            log.info("GeoLocationConfig: Trying to load GeoLite2-Country database");
-            Resource resource = resourceLoader.getResource("classpath:maxmind/GeoLite2-Country.mmdb");
+            log.info("GeoLocationConfig: Trying to load GeoLite2-City database");
+            Resource resource = resourceLoader.getResource("classpath:maxmind/GeoLite2-City.mmdb");
             InputStream dbStream = resource.getInputStream();
             log.info("GeoLocationConfig: Database loaded Successfully");
 

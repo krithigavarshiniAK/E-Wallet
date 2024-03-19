@@ -3695,3 +3695,591 @@ Action:
 
 Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
 
+2024-03-19 12:55:56.787 [main] INFO  c.s.W.test.DistanceControllerTest - Starting DistanceControllerTest using Java 21.0.2 with PID 17260 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 12:55:56.807 [main] INFO  c.s.W.test.DistanceControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 12:55:58.799 [main] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:84)
+	at jdk.proxy2/jdk.proxy2.$Proxy76.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:274)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:235)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:86)
+	at org.mockito.Mockito.mock(Mockito.java:2101)
+	at org.springframework.boot.test.mock.mockito.MockDefinition.createMock(MockDefinition.java:158)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.registerMock(MockitoPostProcessor.java:185)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.register(MockitoPostProcessor.java:167)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(MockitoPostProcessor.java:141)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(MockitoPostProcessor.java:129)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1454)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:122)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:106)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:63)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:132)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:50)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:27)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:22)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:73)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1683)
+	at org.springframework.boot.test.mock.mockito.MockReset.withSettings(MockReset.java:81)
+	at org.springframework.boot.test.mock.mockito.MockDefinition.createMock(MockDefinition.java:147)
+	... 88 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 97 common frames omitted
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+It seems like you are running Mockito with an incomplete or inconsistent class path. Byte Buddy could not be loaded.
+
+Byte Buddy is available on Maven Central as 'net.bytebuddy:byte-buddy' with the module name 'net.bytebuddy'.
+For the inline mock maker, 'net.bytebuddy:byte-buddy-agent' with the module name 'net.bytebuddy.agent' is also required.
+Normally, your IDE or build tool (such as Maven or Gradle) should take care of your class path completion but 
+	at org.mockito.internal.exceptions.Reporter.missingByteBuddyDependency(Reporter.java:1208)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:25)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	... 100 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: net/bytebuddy/utility/GraalImageCode
+	at org.mockito.internal.creation.bytebuddy.SubclassInjectionLoader.<init>(SubclassInjectionLoader.java:34)
+	at org.mockito.internal.creation.bytebuddy.SubclassBytecodeGenerator.<init>(SubclassBytecodeGenerator.java:75)
+	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.<init>(InlineBytecodeGenerator.java:107)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:337)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 101 common frames omitted
+Caused by: java.lang.ClassNotFoundException: net.bytebuddy.utility.GraalImageCode
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 106 common frames omitted
+2024-03-19 12:57:46.555 [main] INFO  c.s.W.test.DistanceControllerTest - Starting DistanceControllerTest using Java 21.0.2 with PID 18248 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 12:57:46.557 [main] INFO  c.s.W.test.DistanceControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 12:57:49.179 [main] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:84)
+	at jdk.proxy2/jdk.proxy2.$Proxy76.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:274)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:235)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:86)
+	at org.mockito.Mockito.mock(Mockito.java:2101)
+	at org.springframework.boot.test.mock.mockito.MockDefinition.createMock(MockDefinition.java:158)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.registerMock(MockitoPostProcessor.java:185)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.register(MockitoPostProcessor.java:167)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(MockitoPostProcessor.java:141)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(MockitoPostProcessor.java:129)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1454)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:122)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:106)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:63)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:132)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:50)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:27)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:22)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:73)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1683)
+	at org.springframework.boot.test.mock.mockito.MockReset.withSettings(MockReset.java:81)
+	at org.springframework.boot.test.mock.mockito.MockDefinition.createMock(MockDefinition.java:147)
+	... 88 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 97 common frames omitted
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+It seems like you are running Mockito with an incomplete or inconsistent class path. Byte Buddy could not be loaded.
+
+Byte Buddy is available on Maven Central as 'net.bytebuddy:byte-buddy' with the module name 'net.bytebuddy'.
+For the inline mock maker, 'net.bytebuddy:byte-buddy-agent' with the module name 'net.bytebuddy.agent' is also required.
+Normally, your IDE or build tool (such as Maven or Gradle) should take care of your class path completion but 
+	at org.mockito.internal.exceptions.Reporter.missingByteBuddyDependency(Reporter.java:1208)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:25)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	... 100 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: net/bytebuddy/utility/GraalImageCode
+	at org.mockito.internal.creation.bytebuddy.SubclassInjectionLoader.<init>(SubclassInjectionLoader.java:34)
+	at org.mockito.internal.creation.bytebuddy.SubclassBytecodeGenerator.<init>(SubclassBytecodeGenerator.java:75)
+	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.<init>(InlineBytecodeGenerator.java:107)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:337)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 101 common frames omitted
+Caused by: java.lang.ClassNotFoundException: net.bytebuddy.utility.GraalImageCode
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 106 common frames omitted
+2024-03-19 12:59:01.643 [main] INFO  c.s.W.test.DistanceControllerTest - Starting DistanceControllerTest using Java 21.0.2 with PID 15592 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 12:59:01.645 [main] INFO  c.s.W.test.DistanceControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 12:59:03.076 [main] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.IllegalStateException: Could not initialize plugin: interface org.mockito.plugins.MockMaker (alternate: null)
+	at org.mockito.internal.configuration.plugins.PluginLoader$1.invoke(PluginLoader.java:84)
+	at jdk.proxy2/jdk.proxy2.$Proxy75.isTypeMockable(Unknown Source)
+	at org.mockito.internal.util.MockUtil.typeMockabilityOf(MockUtil.java:78)
+	at org.mockito.internal.util.MockCreationValidator.validateType(MockCreationValidator.java:22)
+	at org.mockito.internal.creation.MockSettingsImpl.validatedSettings(MockSettingsImpl.java:274)
+	at org.mockito.internal.creation.MockSettingsImpl.build(MockSettingsImpl.java:235)
+	at org.mockito.internal.MockitoCore.mock(MockitoCore.java:86)
+	at org.mockito.Mockito.mock(Mockito.java:2101)
+	at org.springframework.boot.test.mock.mockito.MockDefinition.createMock(MockDefinition.java:158)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.registerMock(MockitoPostProcessor.java:185)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.register(MockitoPostProcessor.java:167)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(MockitoPostProcessor.java:141)
+	at org.springframework.boot.test.mock.mockito.MockitoPostProcessor.postProcessBeanFactory(MockitoPostProcessor.java:129)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:363)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:788)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:606)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:137)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58)
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46)
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1454)
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:553)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:137)
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:108)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.postProcessFields(MockitoTestExecutionListener.java:122)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.injectFields(MockitoTestExecutionListener.java:106)
+	at org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener.prepareTestInstance(MockitoTestExecutionListener.java:63)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:378)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1708)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.StreamSpliterators$WrappingSpliterator.forEachRemaining(StreamSpliterators.java:310)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:735)
+	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$6(ClassBasedTestDescriptor.java:290)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$4(ClassBasedTestDescriptor.java:279)
+	at java.base/java.util.Optional.orElseGet(Optional.java:364)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:278)
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$0(TestMethodTestDescriptor.java:106)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:105)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:90)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:248)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$5(DefaultLauncher.java:211)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:226)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:199)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:132)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55)
+Caused by: java.lang.IllegalStateException: Internal problem occurred, please report it. Mockito is unable to load the default implementation of class that is a part of Mockito distribution. Failed to load interface org.mockito.plugins.MockMaker
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:105)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.getDefaultPlugin(DefaultMockitoPlugins.java:79)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:75)
+	at org.mockito.internal.configuration.plugins.PluginLoader.loadPlugin(PluginLoader.java:50)
+	at org.mockito.internal.configuration.plugins.PluginRegistry.<init>(PluginRegistry.java:27)
+	at org.mockito.internal.configuration.plugins.Plugins.<clinit>(Plugins.java:22)
+	at org.mockito.internal.MockitoCore.<clinit>(MockitoCore.java:73)
+	at org.mockito.Mockito.<clinit>(Mockito.java:1683)
+	at org.springframework.boot.test.mock.mockito.MockReset.withSettings(MockReset.java:81)
+	at org.springframework.boot.test.mock.mockito.MockDefinition.createMock(MockDefinition.java:147)
+	... 88 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException: null
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:74)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.mockito.internal.configuration.plugins.DefaultMockitoPlugins.create(DefaultMockitoPlugins.java:103)
+	... 97 common frames omitted
+Caused by: org.mockito.exceptions.base.MockitoInitializationException: 
+It seems like you are running Mockito with an incomplete or inconsistent class path. Byte Buddy could not be loaded.
+
+Byte Buddy is available on Maven Central as 'net.bytebuddy:byte-buddy' with the module name 'net.bytebuddy'.
+For the inline mock maker, 'net.bytebuddy:byte-buddy-agent' with the module name 'net.bytebuddy.agent' is also required.
+Normally, your IDE or build tool (such as Maven or Gradle) should take care of your class path completion but 
+	at org.mockito.internal.exceptions.Reporter.missingByteBuddyDependency(Reporter.java:1208)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:25)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	... 100 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: net/bytebuddy/utility/GraalImageCode
+	at org.mockito.internal.creation.bytebuddy.SubclassInjectionLoader.<init>(SubclassInjectionLoader.java:34)
+	at org.mockito.internal.creation.bytebuddy.SubclassBytecodeGenerator.<init>(SubclassBytecodeGenerator.java:75)
+	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.<init>(InlineBytecodeGenerator.java:107)
+	at org.mockito.internal.creation.bytebuddy.InlineDelegateByteBuddyMockMaker.<init>(InlineDelegateByteBuddyMockMaker.java:337)
+	at org.mockito.internal.creation.bytebuddy.InlineByteBuddyMockMaker.<init>(InlineByteBuddyMockMaker.java:23)
+	... 101 common frames omitted
+Caused by: java.lang.ClassNotFoundException: net.bytebuddy.utility.GraalImageCode
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526)
+	... 106 common frames omitted
+2024-03-19 13:00:22.676 [main] INFO  c.s.W.test.DistanceControllerTest - Starting DistanceControllerTest using Java 21.0.2 with PID 10772 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:00:22.678 [main] INFO  c.s.W.test.DistanceControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:00:25.864 [main] INFO  c.s.W.test.DistanceControllerTest - Started DistanceControllerTest in 3.725 seconds (process running for 5.004)
+2024-03-19 13:04:06.850 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 18824 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:04:06.852 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:04:09.807 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.518 seconds (process running for 4.77)
+2024-03-19 13:04:42.497 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 18796 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:04:42.499 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:04:46.319 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 4.397 seconds (process running for 5.7)
+2024-03-19 13:04:46.924 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 2112 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:04:46.927 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:04:50.209 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 4.245 seconds (process running for 6.24)
+2024-03-19 13:05:04.705 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 7756 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:05:04.707 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:05:07.706 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.553 seconds (process running for 4.934)
+2024-03-19 13:05:31.318 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 7012 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:05:31.320 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:05:34.265 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.499 seconds (process running for 4.749)
+2024-03-19 13:12:13.560 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 18140 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:12:13.562 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:12:16.596 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.586 seconds (process running for 4.86)
+2024-03-19 13:17:18.300 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 17060 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:17:18.302 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:17:21.601 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.884 seconds (process running for 5.228)
+2024-03-19 13:17:29.515 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 13980 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:17:29.517 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:17:32.560 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.595 seconds (process running for 4.895)
+2024-03-19 13:18:58.671 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 17676 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:18:58.673 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:19:01.623 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.503 seconds (process running for 4.778)
+2024-03-19 13:23:46.207 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 4412 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:23:46.209 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:23:49.252 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.593 seconds (process running for 4.909)
+2024-03-19 13:25:04.492 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 11284 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 13:25:04.493 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 13:25:07.641 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.709 seconds (process running for 5.04)
+2024-03-19 14:08:54.463 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 5600 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 14:08:54.464 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 14:08:57.531 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.69 seconds (process running for 5.022)
+2024-03-19 14:18:23.767 [main] INFO  c.s.W.test.CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 3232 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 14:18:23.769 [main] INFO  c.s.W.test.CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 14:18:27.022 [main] INFO  c.s.W.test.CoordinatesControllerTest - Started CoordinatesControllerTest in 3.863 seconds (process running for 5.327)
+2024-03-19 16:44:30.165 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 19376 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 16:44:30.168 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 16:44:30.625 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field distanceService in com.serviceImplementation.Wallet.WalletController.CoordinatesController required a bean of type 'com.serviceImplementation.Wallet.Service.DistanceService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.serviceImplementation.Wallet.Service.DistanceService' in your configuration.
+
+2024-03-19 16:45:35.755 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 11244 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 16:45:35.757 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 16:45:36.229 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field distanceService in com.serviceImplementation.Wallet.WalletController.CoordinatesController required a bean of type 'com.serviceImplementation.Wallet.Service.DistanceService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.serviceImplementation.Wallet.Service.DistanceService' in your configuration.
+
+2024-03-19 16:50:45.965 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 2920 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 16:50:45.968 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 16:50:47.879 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 2.386 seconds (process running for 3.654)
+2024-03-19 16:52:35.731 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 4120 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 16:52:35.733 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 16:52:36.184 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field distanceService in com.serviceImplementation.Wallet.WalletController.CoordinatesController required a bean of type 'com.serviceImplementation.Wallet.Service.DistanceService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.serviceImplementation.Wallet.Service.DistanceService' in your configuration.
+
+2024-03-19 18:06:26.058 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 7856 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:06:26.060 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:06:28.115 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:06:28.116 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:06:29.714 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 4.17 seconds (process running for 5.61)
+2024-03-19 18:10:59.525 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 11008 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:10:59.528 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:11:01.702 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:11:01.703 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:11:03.386 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 4.326 seconds (process running for 5.615)
+2024-03-19 18:11:37.820 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 7628 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:11:37.824 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:11:38.823 [main] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field walletService in com.serviceImplementation.Wallet.WalletController.Controller required a bean of type 'com.serviceImplementation.Wallet.Service.WalletService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.serviceImplementation.Wallet.Service.WalletService' in your configuration.
+
+2024-03-19 18:12:11.747 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 13184 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:12:11.750 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:12:13.673 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:12:13.674 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:12:15.162 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 3.873 seconds (process running for 5.151)
+2024-03-19 18:28:43.128 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 17656 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:28:43.131 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:28:46.406 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:28:46.407 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:28:48.050 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 5.384 seconds (process running for 6.809)
+2024-03-19 18:29:35.515 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 7476 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:29:35.519 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:29:39.198 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:29:39.199 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:29:40.871 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 5.873 seconds (process running for 7.226)
+2024-03-19 18:30:23.195 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 11028 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:30:23.198 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:30:26.579 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:30:26.581 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:30:28.225 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 5.514 seconds (process running for 6.802)
+2024-03-19 18:31:07.554 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 4120 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:31:07.557 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:31:09.524 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:31:09.525 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:31:11.244 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 4.166 seconds (process running for 5.533)
+2024-03-19 18:34:31.912 [main] INFO  CoordinatesControllerTest - Starting CoordinatesControllerTest using Java 21.0.2 with PID 14700 (started by OGS in C:\Users\OGS\Downloads\Testing\E-Wallet\Wallet)
+2024-03-19 18:34:31.915 [main] INFO  CoordinatesControllerTest - No active profile set, falling back to 1 default profile: "default"
+2024-03-19 18:34:33.899 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Trying to load GeoLite2-City database
+2024-03-19 18:34:33.900 [main] INFO  c.s.Wallet.Config.GeoLocationConfig - GeoLocationConfig: Database loaded Successfully
+2024-03-19 18:34:35.415 [main] INFO  CoordinatesControllerTest - Started CoordinatesControllerTest in 3.973 seconds (process running for 5.252)

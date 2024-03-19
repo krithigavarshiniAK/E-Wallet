@@ -11,12 +11,9 @@ import javax.persistence.Entity;
 public class GeoIP {
     private String ipAddress;
     private String city;
+    private String country;
     private String latitude;
     private String longitude;
-
-    public String getIpAddress(String ip) {
-        return ipAddress;
-    }
 
     public String getLatitude(String b) {
         return b;
